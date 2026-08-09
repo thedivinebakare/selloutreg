@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Divine Bakare — Private Live Training</title>
+  <meta name="description" content="A free private live training with Divine Bakare on how smart Nigerians make their first ₦50k–₦200k selling what they already know — without learning another skill.">
+  <meta name="theme-color" content="#FBFCF8">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232654B6'/%3E%3Ctext x='32' y='43' font-family='Plus+Jakarta+Sans' font-size='24' font-weight='700' fill='%23FBFCF8' text-anchor='middle'%3EDB%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --pearl: #FBFCF8;
+      --ink: #0B1526;
+      --royal: #2654B6;
+      --royal-2: #3A6FE0;
+      --navy: #16357F;
+      --muted: #5A6B85;
+      --faint: #9AA7BE;
+      --gold: #C4923B;
+      --gold-soft: #E5C77F;
+      --line: rgba(11, 21, 38, 0.10);
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+    body {
+      font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+      background: var(--pearl);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .font-display { font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }
+
+    /* ---- Typography helpers ---- */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      font-size: .72rem;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--royal);
+    }
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 26px;
+      height: 1px;
+      margin-right: .7rem;
+      background: currentColor;
+      opacity: .55;
+    }
+    .eyebrow-center::after {
+      content: '';
+      display: inline-block;
+      width: 26px;
+      height: 1px;
+      margin-left: .7rem;
+      background: currentColor;
+      opacity: .55;
+    }
+    .eyebrow-gold { color: var(--gold); }
+    .text-gradient {
+      background: linear-gradient(100deg, #16357F 0%, #2654B6 46%, #3A6FE0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .text-gradient-gold {
+      background: linear-gradient(100deg, #9A7430 0%, #C4923B 55%, #E5C77F 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .gold-underline { position: relative; white-space: nowrap; }
+    .gold-underline::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: .05em;
+      height: .16em;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+      opacity: .42;
+    }
+
+    /* ---- Depth & shadows ---- */
+    .shadow-royal {
+      box-shadow: 0 1px 2px rgba(11,21,38,.06), 0 12px 32px -16px rgba(38,84,182,.28), 0 28px 56px -28px rgba(22,53,127,.35);
+    }
+    .shadow-royal-sm {
+      box-shadow: 0 1px 2px rgba(11,21,38,.05), 0 8px 20px -12px rgba(38,84,182,.25);
+    }
+    .shadow-lift {
+      box-shadow: 0 1px 2px rgba(11,21,38,.05), 0 18px 40px -24px rgba(22,53,127,.30);
+    }
+    .glass {
+      background: rgba(255,255,255,.72);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(38,84,182,.12);
+    }
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 1.25rem;
+      box-shadow: 0 1px 2px rgba(11,21,38,.04), 0 10px 28px -20px rgba(38,84,182,.22);
+      transition: transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s cubic-bezier(.22,1,.36,1), border-color .45s;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(38,84,182,.32);
+      box-shadow: 0 2px 4px rgba(11,21,38,.05), 0 20px 44px -20px rgba(38,84,182,.35);
+    }
+
+    /* ---- Buttons ---- */
+    .btn-primary, .btn-secondary, .btn-white { position: relative; overflow: hidden; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      border-radius: 9999px;
+      padding: 1rem 1.9rem;
+      font-weight: 700;
+      font-size: .95rem;
+      color: #fff;
+      background: linear-gradient(135deg, #3A6FE0 0%, #2654B6 48%, #16357F 100%);
+      box-shadow: 0 1px 2px rgba(11,21,38,.12), 0 10px 24px -8px rgba(38,84,182,.55), 0 20px 44px -20px rgba(22,53,127,.6);
+      transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s, filter .35s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); filter: brightness(1.05); box-shadow: 0 2px 4px rgba(11,21,38,.12), 0 16px 32px -10px rgba(38,84,182,.6), 0 28px 60px -24px rgba(22,53,127,.65); }
+    .btn-primary:active { transform: translateY(0) scale(.97); box-shadow: 0 4px 12px -4px rgba(38,84,182,.5); }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      border-radius: 9999px;
+      padding: 1rem 1.9rem;
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--ink);
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(11,21,38,.14);
+      transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s, background-color .35s;
+    }
+    .btn-secondary:hover { transform: translateY(-2px); border-color: rgba(38,84,182,.45); background: #fff; }
+    .btn-secondary:active { transform: scale(.97); }
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      border-radius: 9999px;
+      padding: 1rem 1.9rem;
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--royal);
+      background: #fff;
+      box-shadow: 0 1px 2px rgba(0,0,0,.2), 0 12px 28px -12px rgba(0,0,0,.5);
+      transition: transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s;
+    }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 2px 4px rgba(0,0,0,.2), 0 20px 40px -16px rgba(0,0,0,.55); }
+    .btn-white:active { transform: scale(.97); }
+    .btn-primary:focus-visible, .btn-secondary:focus-visible, .btn-white:focus-visible { outline: 2px solid var(--royal); outline-offset: 3px; }
+
+    /* shine sweep on hover (transform-only) */
+    .shine-sweep::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      bottom: -60%;
+      left: -70%;
+      width: 45%;
+      transform: translateX(-140%) rotate(4deg);
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.5), transparent);
+      pointer-events: none;
+    }
+    .shine-sweep:hover::after { animation: shine .95s cubic-bezier(.22,1,.36,1); }
+    @keyframes shine { to { transform: translateX(340%) rotate(4deg); } }
+
+    /* continuous headline shine (transform-only) */
+    .h-shine { position: relative; }
+    .h-shine::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 43%, rgba(255,255,255,.8) 50%, transparent 57%);
+      mix-blend-mode: overlay;
+      transform: translateX(-115%);
+      animation: hshine 5.5s cubic-bezier(.22,1,.36,1) infinite;
+      pointer-events: none;
+    }
+    @keyframes hshine { 0% { transform: translateX(-115%); } 20%, 100% { transform: translateX(115%); } }
+
+    /* ---- Chips & links ---- */
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border-radius: 9999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.75);
+      padding: .45rem .9rem;
+      font-size: .82rem;
+      color: var(--muted);
+      transition: border-color .3s, color .3s, transform .3s;
+    }
+    .chip:hover { border-color: rgba(38,84,182,.4); color: var(--ink); transform: translateY(-1px); }
+    .chip:focus-visible { outline: 2px solid var(--royal); outline-offset: 2px; }
+    .nav-link { position: relative; font-size: .875rem; font-weight: 600; color: var(--muted); transition: color .3s; }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -4px;
+      height: 2px; width: 100%;
+      border-radius: 2px;
+      background: var(--royal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .35s cubic-bezier(.22,1,.36,1);
+    }
+    .nav-link:hover { color: var(--ink); }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:focus-visible { outline: 2px solid var(--royal); outline-offset: 4px; border-radius: 2px; }
+
+    /* ---- Backgrounds ---- */
+    .hero-glow {
+      background:
+        radial-gradient(46rem 30rem at 82% -6%, rgba(38,84,182,.12), transparent 62%),
+        radial-gradient(40rem 26rem at -6% 24%, rgba(58,111,224,.08), transparent 62%),
+        radial-gradient(34rem 24rem at 50% 118%, rgba(38,84,182,.09), transparent 62%);
+    }
+    .hero-grid {
+      background-image:
+        linear-gradient(to right, rgba(38,84,182,.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(38,84,182,.05) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: radial-gradient(75% 65% at 50% 15%, #000 30%, transparent 100%);
+      mask-image: radial-gradient(75% 65% at 50% 15%, #000 30%, transparent 100%);
+    }
+    .noise {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    }
+    .band-soft { background: #EDF2FB; }
+    .band-navy {
+      background:
+        radial-gradient(50rem 28rem at 85% -10%, rgba(58,111,224,.28), transparent 62%),
+        radial-gradient(44rem 26rem at -8% 30%, rgba(38,84,182,.35), transparent 62%),
+        linear-gradient(135deg, #12295F 0%, #16357F 48%, #1B3E95 100%);
+    }
+
+    /* ---- Motion ---- */
+    @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .animate-floaty { animation: floaty 6s ease-in-out infinite; }
+    .animate-floaty-slow { animation: floaty 8s ease-in-out 1.2s infinite; }
+    @keyframes drift1 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(34px,-22px) scale(1.06); } }
+    @keyframes drift2 { 0%, 100% { transform: translate(0,0) scale(1); } 50% { transform: translate(-28px,20px) scale(.95); } }
+    .orb-1 { animation: drift1 15s ease-in-out infinite; }
+    .orb-2 { animation: drift2 19s ease-in-out infinite; }
+    @keyframes pulse-ring { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(2.4); opacity: 0; } }
+    .pulse-ring { animation: pulse-ring 2s cubic-bezier(.22,1,.36,1) infinite; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .animate-marquee { animation: marquee 34s linear infinite; }
+    .marquee-track { display: flex; width: max-content; }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    /* ---- Tilt card ---- */
+    .tilt-card { transform-style: preserve-3d; will-change: transform; transition: transform .5s cubic-bezier(.22,1,.36,1); }
+
+    /* ---- Floating card stack ---- */
+    .card-stage { position: relative; }
+    .card-layer {
+      position: absolute;
+      inset: 0;
+      border-radius: 1.75rem;
+      transition: transform 1.1s cubic-bezier(.22,1,.36,1), opacity 1.1s cubic-bezier(.22,1,.36,1);
+    }
+    .card-layer-0 { background: linear-gradient(135deg, #12295F, #16357F); transform: rotate(2.5deg) scale(.955); opacity: .5; }
+    .card-layer-1 { background: linear-gradient(135deg, #2654B6, #3A6FE0); transform: rotate(-2deg) scale(.97); opacity: .58; }
+    .card-layer-2 { background: linear-gradient(135deg, #1B3E95, #16357F); transform: rotate(1.2deg) scale(.985); opacity: .62; }
+    .card-layer-3 { background: linear-gradient(135deg, #C4923B, #E5C77F); transform: rotate(-1.5deg) scale(1); opacity: .42; }
+    .card-layer.focus { transform: rotate(0deg) scale(1.02); opacity: .85; }
+    .card-main { transition: transform .6s cubic-bezier(.22,1,.36,1), box-shadow .6s cubic-bezier(.22,1,.36,1); }
+    .card-main:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 2px 4px rgba(11,21,38,.06), 0 24px 48px -18px rgba(38,84,182,.4), 0 40px 80px -32px rgba(22,53,127,.45); }
+    .card-body { position: relative; min-height: 0; }
+    .card-state {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+      transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);
+    }
+    .card-state.active { opacity: 1; transform: none; pointer-events: auto; }
+    .card-dot {
+      width: .5rem;
+      height: .5rem;
+      border-radius: 9999px;
+      background: #C6CDDD;
+      cursor: pointer;
+      transition: transform .35s cubic-bezier(.22,1,.36,1), background-color .35s;
+    }
+    .card-dot:hover { background: #9AA7BE; transform: scale(1.2); }
+    .card-dot:focus-visible { outline: 2px solid var(--royal); outline-offset: 3px; }
+    .card-dot.active { background: linear-gradient(90deg, #2654B6, #3A6FE0); transform: scale(1.4); }
+
+    /* ---- Showcase hover zoom (transform-only) ---- */
+    .zoom-img { transition: transform .8s cubic-bezier(.22,1,.36,1); }
+    .group:hover .zoom-img, .zoom-img:hover { transform: scale(1.05); }
+
+    /* ---- Reveal ---- */
+    html.js [data-reveal] {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+    }
+    html.js [data-reveal].in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html.js [data-reveal] { opacity: 1; transform: none; transition: none; }
+      .animate-floaty, .animate-floaty-slow, .orb-1, .orb-2, .pulse-ring, .animate-marquee, .h-shine::after, .shine-sweep:hover::after, .zoom-img { animation: none; transition: none; }
+      .card-layer, .card-main, .card-state, .card-dot { transition: none; }
+    }
+
+    /* ---- Sticky countdown bar ---- */
+    #sticky-bar {
+      position: fixed;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 40;
+      transform: translateY(115%);
+      transition: transform .55s cubic-bezier(.22,1,.36,1);
+      background: rgba(251,252,248,.86);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid rgba(11,21,38,.08);
+      box-shadow: 0 -10px 30px -14px rgba(22,53,127,.22);
+    }
+    #sticky-bar.sticky-show { transform: translateY(0); }
+    .cd-item { display: flex; flex-direction: column; align-items: center; line-height: 1; min-width: 2.9rem; }
+    .cd-item b {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--gold);
+      font-variant-numeric: tabular-nums;
+    }
+    .cd-item em { font-style: normal; font-size: .56rem; text-transform: uppercase; letter-spacing: .16em; color: var(--faint); margin-top: 4px; }
+    .cd-sep { font-weight: 700; color: rgba(196,146,59,.35); font-size: 1.2rem; }
+
+    /* ---- Form ---- */
+    .step-panel { display: none; }
+    .step-panel.active { display: block; animation: stepIn .45s cubic-bezier(.22,1,.36,1); }
+    @keyframes stepIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .bar-fill { transform-origin: left center; transition: transform .5s cubic-bezier(.22,1,.36,1); }
+    .mobile-menu { transform: translateY(-12px); opacity: 0; pointer-events: none; transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .4s; }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .input {
+      width: 100%;
+      border-radius: .875rem;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      padding: .85rem 1rem;
+      font-size: .95rem;
+      color: var(--ink);
+      transition: border-color .3s, box-shadow .3s;
+    }
+    .input::placeholder { color: #9AA7BE; }
+    .input:hover { border-color: rgba(38,84,182,.35); }
+    .input:focus { outline: none; border-color: var(--royal); box-shadow: 0 0 0 4px rgba(38,84,182,.14); }
+    .input:focus-visible { outline: none; }
+    label.req::after { content: ' *'; color: #B0454B; }
+    .opt {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: .7rem 1.15rem;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: transform .3s cubic-bezier(.22,1,.36,1), border-color .3s, background-color .3s, color .3s;
+    }
+    .opt:hover { border-color: rgba(38,84,182,.45); transform: translateY(-1px); }
+    .opt:active { transform: scale(.96); }
+    .opt:focus-visible { outline: 2px solid var(--royal); outline-offset: 2px; }
+    .opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .opt:has(input:checked) { border-color: var(--royal); background: #EDF2FB; color: var(--royal); font-weight: 700; box-shadow: 0 0 0 1px var(--royal) inset; }
+    .opt:has(input:focus-visible) { outline: 2px solid var(--royal); outline-offset: 2px; }
+
+    .h2-base { font-family: 'Plus Jakarta Sans', sans-serif; letter-spacing: -0.02em; line-height: 1.08; font-weight: 700; }
+  </style>
+</head>
+<body class="bg-[#FBFCF8] text-[#0B1526] pb-28 lg:pb-24">
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- ============ NAV ============ -->
+<header class="fixed inset-x-0 top-0 z-50 border-b border-[#0B1526]/[0.06] bg-[#FBFCF8]/85 backdrop-blur-xl">
+  <div class="h-1 bg-gradient-to-r from-[#16357F] via-[#2654B6] to-[#3A6FE0]"></div>
+  <nav class="mx-auto flex min-h-16 items-center justify-between px-5 sm:px-8 lg:h-20" aria-label="Main">
+    <a href="#top" class="group flex items-center gap-3" aria-label="The Divine Bakare — home">
+      <span class="font-display text-[1.18rem] font-bold leading-none tracking-[-0.02em] text-[#0B1526]">
+        <span class="font-normal italic text-[#5A6B85]">The</span> Divine <span class="text-[#2654B6]">Bakare</span>
+      </span>
+    </a>
+    <div class="hidden items-center gap-8 lg:flex">
+      <a href="#pattern" class="nav-link">The Pattern</a>
+      <a href="#discover" class="nav-link">What You'll Discover</a>
+      <a href="#modules" class="nav-link">Modules</a>
+      <a href="#about" class="nav-link">Why Me</a>
+      <a href="#details" class="nav-link">Event Details</a>
+      <a href="#register" class="btn-primary shine-sweep !px-5 !py-2.5 !text-sm">Reserve My Seat</a>
+    </div>
+    <button id="menu-btn" type="button" class="flex h-10 w-10 items-center justify-center rounded-xl border border-[#0B1526]/[0.1] bg-white text-[#0B1526] transition-colors hover:border-[#2654B6]/40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2654B6] active:scale-95 lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </nav>
+  <div id="mobile-menu" class="mobile-menu absolute inset-x-0 top-full border-b border-[#0B1526]/[0.06] bg-[#FBFCF8]/95 backdrop-blur-xl lg:hidden">
+    <div class="flex flex-col gap-1 px-5 py-5">
+      <a href="#pattern" class="rounded-lg px-3 py-2.5 text-sm font-medium text-[#5A6B85] transition-colors hover:bg-[#EDF2FB] hover:text-[#0B1526] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2654B6]">The Pattern</a>
+      <a href="#discover" class="rounded-lg px-3 py-2.5 text-sm font-medium text-[#5A6B85] transition-colors hover:bg-[#EDF2FB] hover:text-[#0B1526] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2654B6]">What You'll Discover</a>
+      <a href="#modules" class="rounded-lg px-3 py-2.5 text-sm font-medium text-[#5A6B85] transition-colors hover:bg-[#EDF2FB] hover:text-[#0B1526] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2654B6]">Modules</a>
+      <a href="#about" class="rounded-lg px-3 py-2.5 text-sm font-medium text-[#5A6B85] transition-colors hover:bg-[#EDF2FB] hover:text-[#0B1526] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2654B6]">Why Me</a>
+      <a href="#details" class="rounded-lg px-3 py-2.5 text-sm font-medium text-[#5A6B85] transition-colors hover:bg-[#EDF2FB] hover:text-[#0B1526] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#2654B6]">Event Details</a>
+      <a href="#register" class="btn-primary shine-sweep mt-3 w-full !py-3" data-menu-close>Reserve My Seat</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ 1 · HERO ============ -->
+<section id="top" class="relative overflow-hidden pb-16 pt-32 sm:pt-40 lg:pb-20">
+  <div class="hero-glow absolute inset-0 -z-20"></div>
+  <div class="hero-grid absolute inset-0 -z-10"></div>
+  <div class="noise absolute inset-0 -z-10 opacity-[0.045]"></div>
+  <div class="orb-1 absolute left-[6%] top-24 h-72 w-72 -z-10 rounded-full bg-[#2654B6]/10 blur-3xl"></div>
+  <div class="orb-2 absolute right-[4%] bottom-10 h-80 w-80 -z-10 rounded-full bg-[#3A6FE0]/10 blur-3xl"></div>
+
+  <div class="mx-auto grid max-w-6xl items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.05fr_.95fr] lg:gap-16">
+    <div data-reveal>
+      <span class="inline-flex items-center gap-2.5 rounded-full border border-[#2654B6]/15 bg-white/70 px-4 py-1.5 text-[.68rem] font-bold uppercase tracking-[0.18em] text-[#2654B6]">
+        <span class="relative flex h-2 w-2">
+          <span class="pulse-ring absolute inline-flex h-full w-full rounded-full bg-[#2654B6]"></span>
+          <span class="relative inline-flex h-2 w-2 rounded-full bg-[#2654B6]"></span>
+        </span>
+        A Private Live Training · Sat 29 Aug
+      </span>
+      <h1 class="h-shine font-display mt-7 text-[2.55rem] font-extrabold leading-[1.06] tracking-[-0.03em] text-[#0B1526] sm:text-[3.4rem] lg:text-[4rem]">
+        How Smart Nigerians Are Making Their First <span class="text-gradient whitespace-nowrap">₦50k–₦200k</span> Selling What They Already Know…
+        <span class="mt-2 block text-[0.62em] font-normal italic leading-snug tracking-[-0.01em] text-[#2654B6]">without learning another skill.</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-[1.05rem] leading-[1.7] text-[#5A6B85] sm:text-lg">
+        Join this free private live training and discover the practical sales system that's helping ordinary Nigerians turn what they already know into real income.
+      </p>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <a href="#register" class="btn-primary shine-sweep">
+          Reserve My Free Seat
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 12h15"/></svg>
+        </a>
+        <a href="#discover" class="btn-secondary">See What You'll Discover</a>
+      </div>
+      <div class="mt-8 flex flex-wrap items-center gap-2.5">
+        <span class="chip">📅 Sat, 29 Aug</span>
+        <span class="chip">🕒 8:00 PM WAT</span>
+        <span class="chip">📍 Live on Telegram</span>
+        <span class="chip">🎟 Completely Free</span>
+      </div>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-md lg:max-w-none" data-reveal style="transition-delay:.15s">
+      <div class="absolute -inset-10 -z-10 rounded-[3rem] bg-gradient-to-br from-[#2654B6]/14 to-[#C4923B]/10 blur-3xl"></div>
+
+      <div class="card-stage relative mx-auto aspect-[4/4.55] w-full max-w-sm lg:max-w-[26rem]">
+        <!-- layered background cards -->
+        <div class="card-layer card-layer-0" aria-hidden="true"></div>
+        <div class="card-layer card-layer-1" aria-hidden="true"></div>
+        <div class="card-layer card-layer-2" aria-hidden="true"></div>
+        <div class="card-layer card-layer-3" aria-hidden="true"></div>
+
+        <!-- main animated card -->
+        <div class="card-main glass relative z-10 flex h-full flex-col overflow-hidden rounded-3xl shadow-royal">
+          <span class="pointer-events-none absolute -right-8 -top-12 select-none font-display text-[9rem] font-extrabold leading-none tracking-tighter text-[#2654B6]/[0.05]">DB</span>
+
+          <!-- card header -->
+          <div class="relative flex items-center justify-between px-6 pt-6">
+            <div class="flex items-center gap-1.5" aria-hidden="true">
+              <span class="h-3 w-3 rounded-full bg-[#3A6FE0]/70"></span>
+              <span class="h-3 w-3 rounded-full bg-[#C4923B]/80"></span>
+              <span class="h-3 w-3 rounded-full bg-[#16357F]"></span>
+            </div>
+            <span class="rounded-full bg-[#EDF2FB] px-2.5 py-1 text-[.6rem] font-bold uppercase tracking-[0.14em] text-[#2654B6]">Live Training</span>
+          </div>
+
+          <!-- rotating states -->
+          <div class="card-body relative mx-6 mt-5 flex-1">
+            <!-- STATE 1 · greeting -->
+            <div class="card-state active" data-state="0">
+              <div class="flex items-center gap-3">
+                <img src="brand_assets/My%20Image%20(1).jpg" alt="Divine Bakare" width="44" height="44" class="h-11 w-11 rounded-full object-cover object-top ring-2 ring-[#2654B6]/25">
+                <div>
+                  <p class="text-[.8rem] font-bold leading-tight text-[#0B1526]">Divine Bakare</p>
+                  <p class="text-[.7rem] text-[#9AA7BE]">Your host, live on Telegram</p>
+                </div>
+              </div>
+              <p class="font-display mt-6 text-[1.5rem] font-extrabold leading-snug tracking-[-0.02em] text-[#0B1526]">
+                Hi. Ready to finally see what's missing between <span class="text-[#2654B6]">your knowledge and your income?</span>
+              </p>
+              <p class="mt-3 text-sm leading-relaxed text-[#5A6B85]">Join the free private training — Saturday, 29th August, 8 PM WAT.</p>
+              <span class="mt-6 inline-flex items-center gap-2 rounded-full border border-[#C4923B]/30 bg-[#C4923B]/10 px-3.5 py-1.5 text-[.68rem] font-bold uppercase tracking-[0.14em] text-[#9A7430]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M12 3v1m6.36 1.64l-.7.7M21 12h-1m-8 9v-1m-6.36-1.64l.7-.7M4 12H3m4.66-5.36l-.7-.7"/></svg>
+                Seat reserved for you
+              </span>
+            </div>
+
+            <!-- STATE 2 · analytics -->
+            <div class="card-state" data-state="1">
+              <p class="text-[.68rem] font-bold uppercase tracking-[0.16em] text-[#9AA7BE]">This month</p>
+              <div class="mt-1 flex items-end gap-2">
+                <p class="font-display text-[2.6rem] font-extrabold leading-none tracking-[-0.03em] text-[#0B1526]">₦150,000</p>
+                <span class="mb-1 rounded-full bg-[#EDF2FB] px-2 py-0.5 text-[.62rem] font-bold text-[#2654B6]">6-fig</span>
+              </div>
+              <div class="mt-5">
+                <div class="flex justify-between text-xs">
+                  <span class="text-[#5A6B85]">First four weeks</span>
+                  <span class="font-bold text-[#0B1526]">28 days</span>
+                </div>
+                <div class="mt-2 h-2.5 w-full overflow-hidden rounded-full bg-[#EDF2FB]">
+                  <div class="h-full w-[68%] rounded-full bg-gradient-to-r from-[#3A6FE0] via-[#2654B6] to-[#C4923B]"></div>
+                </div>
+              </div>
+              <div class="mt-6 grid grid-cols-2 gap-3">
+                <div class="rounded-2xl border border-[#0B1526]/[0.06] bg-[#EDF2FB]/70 p-3">
+                  <p class="text-[.62rem] font-bold uppercase tracking-[0.12em] text-[#9AA7BE]">Paid ads</p>
+                  <p class="font-display mt-0.5 text-lg font-extrabold text-[#0B1526]">₦0</p>
+                </div>
+                <div class="rounded-2xl border border-[#0B1526]/[0.06] bg-[#EDF2FB]/70 p-3">
+                  <p class="text-[.62rem] font-bold uppercase tracking-[0.12em] text-[#9AA7BE]">Products</p>
+                  <p class="font-display mt-0.5 text-lg font-extrabold text-[#0B1526]">2</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- STATE 3 · pipeline -->
+            <div class="card-state" data-state="2">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-lg font-extrabold text-[#0B1526]">Your Offer Pipeline</h3>
+                <span class="rounded-full bg-[#EDF2FB] px-2.5 py-1 text-[.62rem] font-bold text-[#2654B6]">90 min</span>
+              </div>
+              <div class="mt-5 rounded-2xl border border-[#0B1526]/[0.06] bg-white/70 p-4">
+                <div class="flex items-center gap-2">
+                  <div class="flex flex-col items-center">
+                    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white shadow-royal-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                    </span>
+                    <span class="mt-1.5 text-[.6rem] font-bold uppercase tracking-wide text-[#5A6B85]">Identify</span>
+                  </div>
+                  <div class="relative h-0.5 flex-1 bg-[#0B1526]/10">
+                    <span class="absolute -right-1 -top-[3px] h-2 w-2 rounded-full bg-[#C4923B]"></span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#2654B6] to-[#16357F] text-white shadow-royal-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                    </span>
+                    <span class="mt-1.5 text-[.6rem] font-bold uppercase tracking-wide text-[#5A6B85]">Package</span>
+                  </div>
+                  <div class="relative h-0.5 flex-1 bg-[#0B1526]/10">
+                    <span class="absolute -right-1 -top-[3px] h-2 w-2 rounded-full bg-[#C4923B]"></span>
+                  </div>
+                  <div class="flex flex-col items-center">
+                    <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#C4923B] to-[#9A7430] text-white shadow-royal-sm">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01"/></svg>
+                    </span>
+                    <span class="mt-1.5 text-[.6rem] font-bold uppercase tracking-wide text-[#5A6B85]">Sell</span>
+                  </div>
+                </div>
+              </div>
+              <p class="mt-5 text-sm leading-relaxed text-[#5A6B85]">The exact sequence we unpack live — so you can run it on what you already know.</p>
+            </div>
+
+            <!-- STATE 4 · wins -->
+            <div class="card-state" data-state="3">
+              <div class="flex items-center justify-between">
+                <h3 class="font-display text-lg font-extrabold text-[#0B1526]">Student wins</h3>
+                <span class="h-1 w-12 rounded-full bg-[#0B1526]/10" aria-hidden="true"></span>
+              </div>
+              <div class="mt-4 space-y-2.5">
+                <div class="flex items-center gap-3 rounded-xl border border-[#0B1526]/[0.06] bg-[#EDF2FB]/60 p-3">
+                  <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#2654B6] text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M23 6l-9.5 9.5-5-5L1 18"/><path stroke-linecap="round" stroke-linejoin="round" d="M17 6h6v6"/></svg>
+                  </span>
+                  <div class="flex-1">
+                    <p class="text-sm font-bold text-[#0B1526]">Made my first ₦50k</p>
+                    <p class="text-xs text-[#9AA7BE]">This week</p>
+                  </div>
+                  <span class="rounded-full bg-white px-2 py-1 text-[.6rem] font-bold text-[#9A7430]">New</span>
+                </div>
+                <div class="flex items-center gap-3 rounded-xl border border-[#0B1526]/[0.06] bg-[#EDF2FB]/60 p-3">
+                  <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#16357F] text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                  </span>
+                  <div class="flex-1">
+                    <p class="text-sm font-bold text-[#0B1526]">Sold my first product</p>
+                    <p class="text-xs text-[#9AA7BE]">Last week</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 rounded-xl border border-[#0B1526]/[0.06] bg-[#EDF2FB]/60 p-3">
+                  <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#C4923B] text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
+                  </span>
+                  <div class="flex-1">
+                    <p class="text-sm font-bold text-[#0B1526]">First paying client</p>
+                    <p class="text-xs text-[#9AA7BE]">Two weeks ago</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- card footer -->
+          <div class="relative flex items-center justify-between px-6 pb-6 pt-2">
+            <div class="flex items-center gap-2">
+              <img src="brand_assets/My%20Image%20(1).jpg" alt="Divine Bakare" width="28" height="28" class="h-7 w-7 rounded-full object-cover object-top ring-2 ring-[#2654B6]/25">
+              <p class="text-[.72rem] font-bold text-[#0B1526]">Divine Bakare</p>
+            </div>
+            <span class="inline-flex items-center gap-1.5 text-[.68rem] font-semibold text-[#9A7430]">
+              <span class="h-1.5 w-1.5 rounded-full bg-[#C4923B]"></span>
+              RSVP Free
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- card indicators -->
+      <div class="mt-7 flex items-center justify-center gap-2.5" role="tablist" aria-label="Card views">
+        <button type="button" class="card-dot" aria-label="Show greeting" aria-current="true"></button>
+        <button type="button" class="card-dot" aria-label="Show results" aria-current="false"></button>
+        <button type="button" class="card-dot" aria-label="Show pipeline" aria-current="false"></button>
+        <button type="button" class="card-dot" aria-label="Show wins" aria-current="false"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="relative overflow-hidden border-y border-[#0B1526]/[0.06] bg-white/70 py-4" aria-hidden="true">
+  <div class="marquee-track animate-marquee">
+    <div class="flex items-center gap-10 whitespace-nowrap pr-10">
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Sell what you already know</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">No new skill required</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Package · Position · Sell</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Identify real problems</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Build a simple sales system</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Turn knowledge into income</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+    </div>
+    <div class="flex items-center gap-10 whitespace-nowrap pr-10" aria-hidden="true">
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Sell what you already know</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">No new skill required</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Package · Position · Sell</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Identify real problems</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Build a simple sales system</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+      <span class="font-display text-[1.05rem] font-semibold italic text-[#0B1526]/70">Turn knowledge into income</span>
+      <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#3A6FE0] to-[#2654B6]"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 2 · THE REAL PROBLEM ============ -->
+<section id="most" class="relative py-20 lg:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="grid gap-10 border-t border-[#0B1526]/[0.08] pt-12 lg:grid-cols-12 lg:gap-16 lg:pt-16" data-reveal>
+      <div class="lg:col-span-7">
+        <p class="eyebrow">The Real Problem</p>
+        <h2 class="font-display mt-6 text-[1.85rem] font-extrabold leading-[1.14] tracking-[-0.03em] text-[#0B1526] sm:text-[2.6rem] lg:text-[2.9rem]">
+          Most people don't have an <span class="text-[#2654B6]">income problem</span>.
+          <span class="mt-3 block">They have an <span class="gold-underline text-gradient-gold">offer, positioning and sales problem.</span></span>
+        </h2>
+      </div>
+      <div class="flex flex-col justify-end lg:col-span-4 lg:col-start-9">
+        <p class="text-[1.05rem] leading-[1.75] text-[#5A6B85]">
+          The knowledge to earn more is usually already there. What's missing is a way to package it, position it, and sell it.
+        </p>
+        <div class="mt-8 flex items-center gap-4">
+          <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white shadow-royal-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 12h15"/></svg>
+          </span>
+          <p class="text-sm leading-relaxed text-[#0B1526]">We'll fix the missing piece — together, live.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 · PROOF — RESULTS ============ -->
+<section id="proof" class="band-soft relative py-20 lg:py-28">
+  <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+    <div data-reveal>
+      <p class="eyebrow">Real Results</p>
+      <h2 class="h2-base mt-5 text-3xl text-[#0B1526] sm:text-4xl lg:text-[2.75rem]">Once you understand the system, you start to get results like theirs.</h2>
+      <p class="mt-6 max-w-lg text-[1.02rem] leading-[1.75] text-[#5A6B85]">
+        Earlier this year I generated <span class="font-bold text-[#0B1526]">six figures in less than four weeks</span> selling two digital products. No paid ads. No massive audience. No fancy launch.
+      </p>
+      <ul class="mt-8 space-y-3.5">
+        <li class="flex items-start gap-3 text-[.98rem] text-[#0B1526]/85">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-[#2654B6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+          Practical sales principles, not theories
+        </li>
+        <li class="flex items-start gap-3 text-[.98rem] text-[#0B1526]/85">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-[#2654B6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+          A simple system anyone can follow
+        </li>
+        <li class="flex items-start gap-3 text-[.98rem] text-[#0B1526]/85">
+          <svg xmlns="http://www.w3.org/2000/svg" class="mt-0.5 h-5 w-5 shrink-0 text-[#2654B6]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+          Starts from what you already know
+        </li>
+      </ul>
+    </div>
+    <div class="relative" data-reveal style="transition-delay:.12s">
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div class="group relative overflow-hidden rounded-3xl border border-white/70 bg-white shadow-lift">
+          <div class="relative overflow-hidden">
+            <img src="https://placehold.co/720x1280/EDF2FB/16357F.png?text=Result+%231" alt="Result screenshot placeholder" class="zoom-img aspect-[9/16] w-full object-cover" loading="lazy">
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B1526]/45 via-transparent to-transparent"></div>
+            <div class="pointer-events-none absolute inset-0 bg-[#2654B6]/10 mix-blend-multiply"></div>
+          </div>
+          <div class="absolute inset-x-3 bottom-3 rounded-2xl border border-white/20 bg-white/85 p-3 backdrop-blur-md">
+            <p class="text-[.7rem] font-bold uppercase tracking-[0.14em] text-[#2654B6]">First sale</p>
+            <p class="font-display mt-0.5 text-sm font-bold text-[#0B1526]">Knowledge → income</p>
+          </div>
+        </div>
+        <div class="group relative mt-6 overflow-hidden rounded-3xl border border-white/70 bg-white shadow-lift sm:mt-12">
+          <div class="relative overflow-hidden">
+            <img src="https://placehold.co/720x1280/16357F/FBFCF8.png?text=Six+Figures" alt="Six figures result placeholder" class="zoom-img aspect-[9/16] w-full object-cover" loading="lazy">
+            <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B1526]/45 via-transparent to-transparent"></div>
+            <div class="pointer-events-none absolute inset-0 bg-[#2654B6]/10 mix-blend-multiply"></div>
+          </div>
+          <div class="absolute inset-x-3 bottom-3 rounded-2xl border border-white/20 bg-white/85 p-3 backdrop-blur-md">
+            <p class="text-[.7rem] font-bold uppercase tracking-[0.14em] text-[#2654B6]">This year</p>
+            <p class="font-display mt-0.5 text-sm font-bold text-[#0B1526]">6 figures in under 4 weeks</p>
+          </div>
+        </div>
+      </div>
+      <div class="animate-floaty absolute -top-5 right-2 rounded-2xl border border-[#0B1526]/[0.06] bg-white px-4 py-3 shadow-royal-sm sm:right-6">
+        <p class="text-[.65rem] font-medium uppercase tracking-[0.14em] text-[#9AA7BE]">0 paid ads</p>
+        <p class="font-display mt-0.5 text-sm font-bold text-[#2654B6]">Just a simple system</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4 · LET ME GUESS / THE PATTERN ============ -->
+<section id="pattern" class="relative py-20 lg:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">The Pattern You're Stuck In</p>
+      <h2 class="h2-base mt-5 text-3xl text-[#0B1526] sm:text-4xl lg:text-[2.9rem]">Let Me Guess… You've Tried Everything</h2>
+    </div>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2" data-reveal>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#EDF2FB] text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+        </span>
+        <p class="text-[1.02rem] leading-relaxed text-[#0B1526]/85">You've been looking for another skill to learn…</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#EDF2FB] text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+        </span>
+        <p class="text-[1.02rem] leading-relaxed text-[#0B1526]/85">You've watched countless <em class="font-semibold">"make money online"</em> videos…</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#EDF2FB] text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+        </span>
+        <p class="text-[1.02rem] leading-relaxed text-[#0B1526]/85">You've saved dozens of business ideas…</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#EDF2FB] text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+        </span>
+        <p class="text-[1.02rem] leading-relaxed text-[#0B1526]/85">You know you're capable of more…</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6 sm:col-span-2">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#2654B6] text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+        </span>
+        <p class="text-[1.02rem] font-semibold leading-relaxed text-[#0B1526]">Yet your income hasn't really changed.</p>
+      </div>
+    </div>
+    <div class="mt-12 rounded-3xl border border-[#2654B6]/15 bg-white p-8 shadow-royal-sm sm:p-10" data-reveal>
+      <p class="eyebrow">Here's What Most People Don't Realize…</p>
+      <p class="font-display mt-5 max-w-3xl text-2xl font-bold leading-snug tracking-[-0.01em] text-[#0B1526] sm:text-[1.7rem]">
+        The problem isn't always that you need another skill.
+        <span class="mt-3 block text-[#2654B6] italic">Sometimes, you simply don't know how to package, position and sell what you already know.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 · BEFORE / AFTER ============ -->
+<section id="beforeafter" class="band-soft relative py-20 lg:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">The Transformation</p>
+      <h2 class="h2-base mt-5 text-3xl text-[#0B1526] sm:text-4xl lg:text-[2.9rem]">Before The Training vs. After</h2>
+    </div>
+    <div class="mt-12 grid gap-6 lg:grid-cols-2 lg:gap-8" data-reveal>
+      <div class="group relative overflow-hidden rounded-3xl border border-white/70 bg-white shadow-lift">
+        <div class="relative overflow-hidden">
+          <img src="https://placehold.co/640x420/EDF2FB/16357F.png?text=Before" alt="Before placeholder" class="zoom-img aspect-[16/10] w-full object-cover" loading="lazy">
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B1526]/40 via-transparent to-transparent"></div>
+        </div>
+        <span class="absolute left-5 top-5 rounded-full border border-white/30 bg-[#0B1526]/70 px-4 py-1.5 text-[.68rem] font-bold uppercase tracking-[0.16em] text-white backdrop-blur-md">Before</span>
+        <div class="p-6 sm:p-7">
+          <p class="font-display text-lg font-bold text-[#0B1526]">Stuck.</p>
+          <p class="mt-2 text-[.95rem] leading-[1.7] text-[#5A6B85]">Knowledge you can't monetize. Offers nobody seems to want. Income that never seems to move.</p>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden rounded-3xl border border-white/70 bg-white shadow-lift">
+        <div class="relative overflow-hidden">
+          <img src="https://placehold.co/640x420/16357F/FBFCF8.png?text=After" alt="After placeholder" class="zoom-img aspect-[16/10] w-full object-cover" loading="lazy">
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B1526]/40 via-transparent to-transparent"></div>
+        </div>
+        <span class="absolute left-5 top-5 rounded-full border border-[#E5C77F]/40 bg-[#0B1526]/70 px-4 py-1.5 text-[.68rem] font-bold uppercase tracking-[0.16em] text-[#E5C77F] backdrop-blur-md">After</span>
+        <div class="p-6 sm:p-7">
+          <p class="font-display text-lg font-bold text-[#0B1526]">Clear.</p>
+          <p class="mt-2 text-[.95rem] leading-[1.7] text-[#5A6B85]">A packaged offer. A clear position. A simple sales system you can run again and again.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6 · INSIDE THIS LIVE TRAINING ============ -->
+<section id="discover" class="relative py-20 lg:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="max-w-3xl" data-reveal>
+      <p class="eyebrow">Inside The Session</p>
+      <h2 class="h2-base mt-5 text-3xl text-[#0B1526] sm:text-4xl lg:text-[2.9rem]">Inside This Free Live Training, You'll Discover:</h2>
+    </div>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">Why many Nigerians stay broke despite being talented and hardworking.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">How to identify problems people are already willing to pay to solve.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">The biggest mistake people make when trying to monetize their knowledge.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">A simple framework for turning ideas into offers.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">Why your current sales approach probably isn't the real problem.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-4 p-6">
+        <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">The first steps towards building a simple sales system.</p>
+      </div>
+    </div>
+    <p class="mt-10 text-center text-[.9rem] font-semibold text-[#9AA7BE]" data-reveal>We're revealing enough. Not everything. <span class="text-[#2654B6]">— The rest stays in the room.</span></p>
+  </div>
+</section>
+
+<!-- ============ 7 · MODULES ============ -->
+<section id="modules" class="band-navy relative overflow-hidden py-20 lg:py-28">
+  <div class="noise absolute inset-0 opacity-[0.05]"></div>
+  <div class="pointer-events-none absolute -left-24 -top-28 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
+  <div class="pointer-events-none absolute -bottom-32 -right-20 h-80 w-80 rounded-full bg-[#3A6FE0]/30 blur-3xl"></div>
+  <div class="relative mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow eyebrow-gold !text-[#E5C77F]">What We'll Cover</p>
+      <h2 class="h2-base mt-5 text-3xl text-white sm:text-4xl lg:text-[2.9rem]">Three Modules. One Simple Path To Your First Sale.</h2>
+    </div>
+    <div class="mt-12 grid gap-5 md:grid-cols-3" data-reveal>
+      <div class="group relative rounded-3xl border border-white/12 bg-white/[0.06] p-7 backdrop-blur-sm transition-colors duration-500 hover:border-[#E5C77F]/40 sm:p-8">
+        <span class="font-display text-[3.4rem] font-extrabold leading-none tracking-tighter text-transparent" style="-webkit-text-stroke:1.5px rgba(229,199,127,.55);">01</span>
+        <h3 class="font-display mt-5 text-xl font-bold text-white">Identify</h3>
+        <p class="mt-3 text-[.95rem] leading-[1.75] text-white/70">Spot the real problems people are already willing to pay to solve — before you build anything.</p>
+      </div>
+      <div class="group relative rounded-3xl border border-white/12 bg-white/[0.06] p-7 backdrop-blur-sm transition-colors duration-500 hover:border-[#E5C77F]/40 sm:p-8" style="transition-delay:.05s">
+        <span class="font-display text-[3.4rem] font-extrabold leading-none tracking-tighter text-transparent" style="-webkit-text-stroke:1.5px rgba(229,199,127,.55);">02</span>
+        <h3 class="font-display mt-5 text-xl font-bold text-white">Package</h3>
+        <p class="mt-3 text-[.95rem] leading-[1.75] text-white/70">Turn what you already know into a clear, valuable offer people understand in seconds.</p>
+      </div>
+      <div class="group relative rounded-3xl border border-white/12 bg-white/[0.06] p-7 backdrop-blur-sm transition-colors duration-500 hover:border-[#E5C77F]/40 sm:p-8" style="transition-delay:.1s">
+        <span class="font-display text-[3.4rem] font-extrabold leading-none tracking-tighter text-transparent" style="-webkit-text-stroke:1.5px rgba(229,199,127,.55);">03</span>
+        <h3 class="font-display mt-5 text-xl font-bold text-white">Position &amp; Sell</h3>
+        <p class="mt-3 text-[.95rem] leading-[1.75] text-white/70">Position your offer confidently and sell it with a simple system — no paid ads required.</p>
+      </div>
+    </div>
+    <p class="mt-10 text-center text-[.95rem] text-white/70" data-reveal>All three, unpacked inside one live session. <span class="font-bold text-[#E5C77F]">Free.</span></p>
+  </div>
+</section>
+
+<!-- ============ 8 · SHOWCASE ============ -->
+<section id="showcase" class="relative py-20 lg:py-28">
+  <div class="mx-auto max-w-4xl px-5 sm:px-8">
+    <div class="text-center" data-reveal>
+      <p class="eyebrow eyebrow-center">Inside The Room</p>
+      <h2 class="h2-base mx-auto mt-5 max-w-xl text-3xl text-[#0B1526] sm:text-4xl">A Live Look At What You're Missing</h2>
+    </div>
+    <div class="group relative mx-auto mt-12 max-w-md overflow-hidden rounded-[2rem] border border-white/80 shadow-royal" data-reveal>
+      <div class="relative overflow-hidden">
+        <img src="brand_assets/1781834481019.png" alt="Preview of the live training" class="zoom-img w-full object-cover" loading="lazy" style="aspect-ratio: 853/1844;">
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B1526]/65 via-transparent to-[#16357F]/20"></div>
+        <div class="pointer-events-none absolute inset-0 bg-[#2654B6]/15 mix-blend-multiply"></div>
+        <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/25 rounded-[2rem]"></div>
+        <div class="pointer-events-none absolute inset-x-6 bottom-6">
+          <p class="font-display text-lg font-bold italic tracking-[-0.01em] text-white">This is the kind of session you leave changed.</p>
+          <p class="mt-1 text-[.72rem] font-semibold uppercase tracking-[0.18em] text-white/70">Live · Interactive · Practical</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9 · THIS IS FOR YOU ============ -->
+<section id="foryou" class="band-soft relative py-20 lg:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="max-w-3xl" data-reveal>
+      <p class="eyebrow">Who It's For</p>
+      <h2 class="h2-base mt-5 text-3xl text-[#0B1526] sm:text-4xl lg:text-[2.9rem]">This Session Is For You If…</h2>
+    </div>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+      <div class="card card-hover flex items-start gap-3.5 p-6">
+        <span class="mt-0.5 text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">You're a student looking for legitimate income.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-3.5 p-6">
+        <span class="mt-0.5 text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">You're a freelancer or creator struggling to get consistent clients.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-3.5 p-6">
+        <span class="mt-0.5 text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">You're a business owner with inconsistent sales.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-3.5 p-6">
+        <span class="mt-0.5 text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">You've tried online business before but didn't get results.</p>
+      </div>
+      <div class="card card-hover flex items-start gap-3.5 p-6">
+        <span class="mt-0.5 text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+        </span>
+        <p class="text-[.97rem] leading-relaxed text-[#0B1526]/85">You're tired of consuming information without implementing anything.</p>
+      </div>
+      <div class="flex items-center justify-center rounded-3xl border border-[#C4923B]/30 bg-white p-6 text-center">
+        <p class="font-display text-[1.05rem] font-bold italic text-[#2654B6]">Then this session was designed for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10 · ABOUT DIVINE ============ -->
+<section id="about" class="relative py-20 lg:py-28">
+  <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[.95fr_1.05fr] lg:gap-20">
+    <div class="relative mx-auto w-full max-w-sm lg:max-w-none" data-reveal>
+      <div class="absolute -inset-3 rounded-[2.2rem] bg-gradient-to-br from-[#16357F] via-[#2654B6] to-[#3A6FE0] opacity-[0.10] blur-2xl lg:-inset-6"></div>
+      <div class="absolute -inset-1.5 rounded-[1.9rem] bg-gradient-to-br from-[#2654B6]/30 to-[#16357F]/10"></div>
+      <div class="relative overflow-hidden rounded-3xl border border-white/80 shadow-royal">
+        <img src="brand_assets/My%20Image%20(1).jpg" alt="Portrait of Divine Bakare" class="aspect-[3/4] h-auto w-full object-cover" loading="lazy">
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#0B1526]/55 via-transparent to-[#16357F]/15"></div>
+        <div class="pointer-events-none absolute inset-0 bg-[#2654B6]/15 mix-blend-multiply"></div>
+        <div class="pointer-events-none absolute inset-0" style="box-shadow: inset 0 0 90px 24px rgba(11,21,38,.42)"></div>
+        <div class="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/25"></div>
+        <div class="pointer-events-none absolute inset-x-4 bottom-4">
+          <p class="font-display text-lg font-bold italic tracking-[-0.01em] text-white/95">Divine Bakare</p>
+          <p class="mt-0.5 text-[.72rem] font-semibold uppercase tracking-[0.18em] text-white/70">Sales Funnel Strategist</p>
+        </div>
+      </div>
+      <div class="animate-floaty absolute -bottom-5 -right-4 rounded-2xl border border-[#0B1526]/[0.06] bg-white px-4 py-3 shadow-royal-sm">
+        <p class="text-[.65rem] font-semibold uppercase tracking-[0.14em] text-[#9AA7BE]">This year</p>
+        <p class="font-display mt-0.5 text-sm font-bold text-[#2654B6]">Six figures in under 4 weeks</p>
+      </div>
+    </div>
+    <div data-reveal style="transition-delay:.1s">
+      <p class="eyebrow">Why Should You Listen To Me?</p>
+      <h2 class="h2-base mt-5 text-3xl text-[#0B1526] sm:text-4xl lg:text-[2.9rem]">Hi, I'm Divine.</h2>
+      <div class="mt-6 space-y-5 text-[1.02rem] leading-[1.75] text-[#5A6B85]">
+        <p>Earlier this year, I generated <span class="font-bold text-[#0B1526]">six figures in less than four weeks</span> selling two digital products. No paid ads. No massive audience. No fancy launch. Just practical sales principles and a simple system.</p>
+        <p>Since then, I've become obsessed with one question:</p>
+      </div>
+      <blockquote class="border-l-2 border-[#C4923B] pl-5 font-display text-xl font-bold italic leading-snug tracking-[-0.01em] text-[#0B1526] sm:text-2xl">
+        Why do some people with average skills make money, while others with incredible knowledge remain broke?
+      </blockquote>
+      <p class="mt-6 text-[1.02rem] leading-[1.75] text-[#5A6B85]">This session is my attempt to answer that question — and help you apply the answer to your own situation.</p>
+      <div class="mt-9 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div class="card p-4 text-center">
+          <p class="font-display text-xl font-bold text-[#2654B6]">6-fig</p>
+          <p class="mt-1 text-[.7rem] leading-tight text-[#9AA7BE]">in under 4 weeks</p>
+        </div>
+        <div class="card p-4 text-center">
+          <p class="font-display text-xl font-bold text-[#2654B6]">2</p>
+          <p class="mt-1 text-[.7rem] leading-tight text-[#9AA7BE]">digital products</p>
+        </div>
+        <div class="card p-4 text-center">
+          <p class="font-display text-xl font-bold text-[#2654B6]">0</p>
+          <p class="mt-1 text-[.7rem] leading-tight text-[#9AA7BE]">paid ads</p>
+        </div>
+        <div class="card p-4 text-center">
+          <p class="font-display text-xl font-bold text-[#2654B6]">0</p>
+          <p class="mt-1 text-[.7rem] leading-tight text-[#9AA7BE]">fancy launch</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 11 · PROOF STATS ============ -->
+<section id="stats" class="band-navy relative overflow-hidden py-20 lg:py-24">
+  <div class="noise absolute inset-0 opacity-[0.05]"></div>
+  <div class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
+  <div class="relative mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6" data-reveal>
+      <div class="text-center">
+        <p class="font-display text-4xl font-extrabold text-[#E5C77F] sm:text-[2.6rem]"><span class="count" data-count="6" data-suffix="-fig">0</span></p>
+        <p class="mx-auto mt-2 max-w-[10rem] text-[.78rem] leading-snug text-white/70">in under 4 weeks</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-4xl font-extrabold text-[#E5C77F] sm:text-[2.6rem]"><span class="count" data-count="4">0</span> <span class="text-2xl">wks</span></p>
+        <p class="mx-auto mt-2 max-w-[10rem] text-[.78rem] leading-snug text-white/70">to six figures, this year</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-4xl font-extrabold text-[#E5C77F] sm:text-[2.6rem]"><span class="count" data-count="2">0</span></p>
+        <p class="mx-auto mt-2 max-w-[10rem] text-[.78rem] leading-snug text-white/70">digital products sold</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-4xl font-extrabold text-[#E5C77F] sm:text-[2.6rem]"><span class="count" data-count="0">0</span></p>
+        <p class="mx-auto mt-2 max-w-[10rem] text-[.78rem] leading-snug text-white/70">paid ads used</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-4xl font-extrabold text-[#E5C77F] sm:text-[2.6rem]"><span class="count" data-count="90">0</span></p>
+        <p class="mx-auto mt-2 max-w-[10rem] text-[.78rem] leading-snug text-white/70">minutes, live &amp; interactive</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display text-4xl font-extrabold text-[#E5C77F] sm:text-[2.6rem]"><span class="count" data-count="100" data-suffix="%">0</span></p>
+        <p class="mx-auto mt-2 max-w-[10rem] text-[.78rem] leading-snug text-white/70">free — registration required</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 12 · TESTIMONIALS ============ -->
+<section id="testimonials" class="relative py-20 lg:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">Proof / Testimonials</p>
+      <h2 class="h2-base mt-5 text-3xl text-[#0B1526] sm:text-4xl lg:text-[2.9rem]">Don't Just Take My Word For It.</h2>
+    </div>
+    <div class="mt-12 grid gap-4 md:grid-cols-3" data-reveal>
+      <figure class="card card-hover flex flex-col p-7">
+        <div class="flex items-center gap-1 text-[#C4923B]" aria-label="5 out of 5 stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[.98rem] leading-[1.7] text-[#0B1526]/85">"I finally understand why my old attempts never worked. The 'package, position, sell' idea alone was worth joining."</blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <img src="https://placehold.co/96x96/EDF2FB/16357F.png?text=Student" alt="Student avatar placeholder" class="h-11 w-11 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="text-sm font-bold text-[#0B1526]">[Student]</p>
+            <p class="text-[.72rem] text-[#9AA7BE]">Sample testimonial — swap with real</p>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card-hover flex flex-col p-7">
+        <div class="flex items-center gap-1 text-[#C4923B]" aria-label="5 out of 5 stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[.98rem] leading-[1.7] text-[#0B1526]/85">"I stopped chasing new skills and started selling what I already know. Everything finally clicked into place."</blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <img src="https://placehold.co/96x96/16357F/FBFCF8.png?text=Freelancer" alt="Freelancer avatar placeholder" class="h-11 w-11 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="text-sm font-bold text-[#0B1526]">[Freelancer]</p>
+            <p class="text-[.72rem] text-[#9AA7BE]">Sample testimonial — swap with real</p>
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="card card-hover flex flex-col p-7">
+        <div class="flex items-center gap-1 text-[#C4923B]" aria-label="5 out of 5 stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <blockquote class="mt-5 flex-1 text-[.98rem] leading-[1.7] text-[#0B1526]/85">"The most practical 90 minutes I've spent this year. I left with a clear next step, not more motivation."</blockquote>
+        <figcaption class="mt-6 flex items-center gap-3">
+          <img src="https://placehold.co/96x96/EDF2FB/2654B6.png?text=Creator" alt="Creator avatar placeholder" class="h-11 w-11 rounded-full object-cover" loading="lazy">
+          <div>
+            <p class="text-sm font-bold text-[#0B1526]">[Creator]</p>
+            <p class="text-[.72rem] text-[#9AA7BE]">Sample testimonial — swap with real</p>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 13 · FINAL CTA ============ -->
+<section id="reserve" class="relative py-20 lg:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#3A6FE0] via-[#2654B6] to-[#16357F] p-9 text-center shadow-royal sm:p-14" data-reveal>
+      <div class="pointer-events-none absolute -left-20 -top-24 h-64 w-64 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 -right-20 h-64 w-64 rounded-full bg-[#3A6FE0]/40 blur-3xl"></div>
+      <p class="eyebrow eyebrow-center !text-white/80">Free Ticket</p>
+      <h2 class="font-display mx-auto mt-4 max-w-2xl text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-white sm:text-4xl lg:text-[2.9rem]">Want The Next Results? Grab Your Free Ticket Now.</h2>
+      <p class="mx-auto mt-5 max-w-xl text-[1.02rem] leading-[1.7] text-white/75">
+        This training is completely free. However, registration is compulsory so we can prepare for everyone attending.
+      </p>
+      <div class="mt-9 flex justify-center">
+        <a href="#register" class="btn-white shine-sweep">
+          Reserve My Free Seat
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 12h15"/></svg>
+        </a>
+      </div>
+      <p class="mt-5 text-[.85rem] text-white/60">Takes less than three minutes · No payment required</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 14 · EVENT DETAILS ============ -->
+<section id="details" class="band-soft relative py-20 lg:py-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="max-w-3xl" data-reveal>
+      <p class="eyebrow">Event Details</p>
+      <h2 class="h2-base mt-5 text-3xl text-[#0B1526] sm:text-4xl lg:text-[2.9rem]">Private Live Training</h2>
+    </div>
+    <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal>
+      <div class="card card-hover p-6">
+        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EDF2FB] text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 3v2m8-2v2M3 9h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>
+        </span>
+        <p class="mt-5 text-[.7rem] font-bold uppercase tracking-[0.16em] text-[#9AA7BE]">Date</p>
+        <p class="font-display mt-1 text-lg font-bold text-[#0B1526]">Saturday, 29th August</p>
+      </div>
+      <div class="card card-hover p-6">
+        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EDF2FB] text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3M12 3a9 9 0 100 18 9 9 0 000-18z"/></svg>
+        </span>
+        <p class="mt-5 text-[.7rem] font-bold uppercase tracking-[0.16em] text-[#9AA7BE]">Time</p>
+        <p class="font-display mt-1 text-lg font-bold text-[#0B1526]">8:00 PM (WAT)</p>
+      </div>
+      <div class="card card-hover p-6">
+        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EDF2FB] text-[#2654B6]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s7-5.1 7-11a7 7 0 10-14 0c0 5.9 7 11 7 11z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 12.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"/></svg>
+        </span>
+        <p class="mt-5 text-[.7rem] font-bold uppercase tracking-[0.16em] text-[#9AA7BE]">Venue</p>
+        <p class="font-display mt-1 text-lg font-bold text-[#0B1526]">Live via Telegram</p>
+        <p class="mt-1 text-[.8rem] text-[#9AA7BE]">Access shared after registration</p>
+      </div>
+      <div class="card card-hover p-6">
+        <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-[#2654B6] text-white">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v2m0 4v2m0 4v2M5 19a2 2 0 01-2-2V7a2 2 0 012-2h11a2 2 0 012 2v3a2 2 0 012 2v4a2 2 0 01-2 2H5z"/></svg>
+        </span>
+        <p class="mt-5 text-[.7rem] font-bold uppercase tracking-[0.16em] text-[#9AA7BE]">Investment</p>
+        <p class="font-display mt-1 text-lg font-bold text-[#2654B6]">Free</p>
+        <p class="mt-1 text-[.8rem] text-[#9AA7BE]">Registration required</p>
+      </div>
+    </div>
+    <div class="mt-10 rounded-3xl border border-[#2654B6]/15 bg-white p-8 text-center shadow-royal-sm sm:p-10" data-reveal>
+      <p class="eyebrow eyebrow-center">Duration</p>
+      <p class="font-display mx-auto mt-4 max-w-xl text-2xl font-bold leading-snug tracking-[-0.01em] text-[#0B1526] sm:text-[1.7rem]">Approximately 90 minutes.</p>
+      <p class="mx-auto mt-4 max-w-2xl text-[1rem] leading-[1.7] text-[#5A6B85]">
+        Please come with something to write. This won't be one of those sessions you simply watch. You'll think. Reflect. And leave with a completely different perspective.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 15 · REGISTRATION FORM ============ -->
+<section id="register" class="band-soft relative py-20 lg:py-28">
+  <div class="mx-auto max-w-3xl px-5 sm:px-8">
+    <div class="text-center" data-reveal>
+      <p class="eyebrow eyebrow-center">Registration</p>
+      <h2 class="font-display mt-4 text-3xl font-extrabold leading-[1.08] tracking-[-0.02em] text-[#0B1526] sm:text-4xl">Welcome!</h2>
+      <p class="mx-auto mt-5 max-w-xl text-[1.02rem] leading-[1.7] text-[#5A6B85]">
+        You're one step away from joining the live training. Before we reserve your seat, I'd like to know a little more about you so I can tailor the session to the people attending.
+      </p>
+    </div>
+
+    <div class="card mt-10 p-6 shadow-royal sm:p-10" data-reveal>
+      <div class="flex items-center justify-between">
+        <p class="text-sm font-bold text-[#0B1526]"><span id="step-label">1</span> / 6</p>
+        <div class="h-1.5 w-28 overflow-hidden rounded-full bg-[#EDF2FB] sm:w-40">
+          <div id="bar-fill" class="bar-fill h-full w-full rounded-full bg-[#2654B6]" style="transform:scaleX(0.1667)"></div>
+        </div>
+      </div>
+
+      <form id="reg-form" class="mt-8" novalidate>
+        <!-- STEP 1 : CONTACT -->
+        <div class="step-panel active" data-step="1">
+          <h3 class="font-display text-xl font-bold tracking-[-0.01em]">First, a few details</h3>
+          <p class="mt-2 text-sm text-[#5A6B85]">So I can reach you with the session details.</p>
+          <div class="mt-6 space-y-5">
+            <div>
+              <label for="f-name" class="req mb-2 block text-sm font-medium text-[#0B1526]">Name</label>
+              <input id="f-name" name="name" type="text" class="input" placeholder="e.g. Adebayo Johnson" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="f-wa" class="req mb-2 block text-sm font-medium text-[#0B1526]">WhatsApp Number</label>
+              <input id="f-wa" name="whatsapp" type="tel" class="input" placeholder="e.g. 0801 234 5678" autocomplete="tel" required>
+            </div>
+            <div>
+              <label for="f-email" class="mb-2 block text-sm font-medium text-[#0B1526]">Email <span class="font-normal text-[#9AA7BE]">(optional)</span></label>
+              <input id="f-email" name="email" type="email" class="input" placeholder="you@example.com" autocomplete="email">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 : WHO ARE YOU -->
+        <div class="step-panel" data-step="2">
+          <h3 class="font-display text-xl font-bold tracking-[-0.01em]">Which best describes you?</h3>
+          <p class="mt-2 text-sm text-[#5A6B85]">Pick the closest option.</p>
+          <div class="mt-6 flex flex-wrap gap-3" role="radiogroup" aria-label="What best describes you">
+            <label class="opt"><input type="radio" name="who" value="Student">Student</label>
+            <label class="opt"><input type="radio" name="who" value="Business Owner">Business Owner</label>
+            <label class="opt"><input type="radio" name="who" value="Freelancer">Freelancer</label>
+            <label class="opt"><input type="radio" name="who" value="Creator">Creator</label>
+            <label class="opt"><input type="radio" name="who" value="9–5 Worker">9–5 Worker</label>
+            <label class="opt"><input type="radio" name="who" value="Other">Other</label>
+          </div>
+        </div>
+
+        <!-- STEP 3 : CURRENTLY SELLING -->
+        <div class="step-panel" data-step="3">
+          <h3 class="font-display text-xl font-bold tracking-[-0.01em]">Do you currently sell anything?</h3>
+          <p class="mt-2 text-sm text-[#5A6B85]">Products, services, skills — anything.</p>
+          <div class="mt-6 flex flex-wrap gap-3" role="radiogroup" aria-label="Do you currently sell anything">
+            <label class="opt"><input type="radio" name="selling" value="Yes">Yes</label>
+            <label class="opt"><input type="radio" name="selling" value="No">No</label>
+          </div>
+          <div id="sell-detail" class="mt-6 hidden">
+            <label for="f-sell" class="mb-2 block text-sm font-medium text-[#0B1526]">What do you sell?</label>
+            <input id="f-sell" name="what_sell" type="text" class="input" placeholder="e.g. coaching, designs, a small business…">
+          </div>
+        </div>
+
+        <!-- STEP 4 : BIGGEST CHALLENGE -->
+        <div class="step-panel" data-step="4">
+          <h3 class="font-display text-xl font-bold tracking-[-0.01em]">What's your biggest challenge right now?</h3>
+          <p class="mt-2 text-sm text-[#5A6B85]">Be honest — this helps me tailor the session.</p>
+          <div class="mt-6">
+            <label for="f-challenge" class="req mb-2 block text-sm font-medium text-[#0B1526]">Your challenge</label>
+            <textarea id="f-challenge" name="challenge" rows="4" class="input resize-none" placeholder="e.g. I don't know what to sell, or I struggle to get clients…" required></textarea>
+          </div>
+        </div>
+
+        <!-- STEP 5 : INVESTMENT COMFORT -->
+        <div class="step-panel" data-step="5">
+          <h3 class="font-display text-xl font-bold tracking-[-0.01em]">One last question about you…</h3>
+          <p class="mt-2 text-sm text-[#5A6B85]">If this training genuinely helped you build a practical sales system — which investment would you realistically be comfortable making afterwards?</p>
+          <div class="mt-6 space-y-3" role="radiogroup" aria-label="Comfortable investment">
+            <label class="opt w-full justify-start !rounded-2xl !px-5"><input type="radio" name="investment" value="Free only">Free only</label>
+            <label class="opt w-full justify-start !rounded-2xl !px-5"><input type="radio" name="investment" value="₦5,000–₦10,000">₦5,000–₦10,000</label>
+            <label class="opt w-full justify-start !rounded-2xl !px-5"><input type="radio" name="investment" value="₦10,000–₦25,000">₦10,000–₦25,000</label>
+            <label class="opt w-full justify-start !rounded-2xl !px-5"><input type="radio" name="investment" value="₦25,000+">₦25,000+</label>
+          </div>
+        </div>
+
+        <!-- STEP 6 : ONE THING -->
+        <div class="step-panel" data-step="6">
+          <h3 class="font-display text-xl font-bold tracking-[-0.01em]">What's the ONE thing you hope this session helps you achieve?</h3>
+          <p class="mt-2 text-sm text-[#5A6B85]">One sentence is perfect.</p>
+          <div class="mt-6">
+            <label for="f-goal" class="req mb-2 block text-sm font-medium text-[#0B1526]">Your one thing</label>
+            <textarea id="f-goal" name="goal" rows="4" class="input resize-none" placeholder="e.g. Finally make my first ₦50k online…" required></textarea>
+          </div>
+        </div>
+
+        <p id="form-error" class="mt-6 hidden text-sm font-medium text-[#B0454B]" role="alert"></p>
+
+        <div class="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
+          <button type="button" id="btn-back" class="btn-secondary !px-6 !py-3 hidden">Back</button>
+          <button type="submit" id="btn-next" class="btn-primary shine-sweep !px-8 !py-3.5">
+            <span id="btn-next-text">Continue</span>
+            <svg id="btn-next-arrow" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 12h15"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 16 · CONFIRMATION ============ -->
+<section id="confirmed" class="band-soft relative hidden py-20 lg:py-28">
+  <div class="mx-auto max-w-2xl px-5 sm:px-8">
+    <div class="card p-8 text-center shadow-royal sm:p-12" data-reveal>
+      <span class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-[#3A6FE0] to-[#2654B6] text-white shadow-royal-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7"/></svg>
+      </span>
+      <h2 class="font-display mt-7 text-3xl font-extrabold tracking-[-0.02em] text-[#0B1526] sm:text-4xl">You're In!</h2>
+      <p class="mx-auto mt-4 max-w-md text-[1rem] leading-[1.7] text-[#5A6B85]">
+        Your registration has been received. One final step remains.
+      </p>
+      <p class="mx-auto mt-3 max-w-md text-[1rem] leading-[1.7] text-[#5A6B85]">
+        Click the button below and send the pre-filled WhatsApp message so I can confirm your registration and send you important updates before the training.
+      </p>
+      <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a id="wa-link" href="#" target="_blank" rel="noopener" class="btn-primary shine-sweep">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.6-6.1c-.3-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.6 6.6 0 01-2-1.2 7.4 7.4 0 01-1.4-1.7c-.1-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5s0-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 2.9 2.9 0 00-.9 2.1c0 1.2.9 2.4 1 2.6s1.8 2.7 4.3 3.8c2.5 1.1 2.5.7 3 .7s1.5-.6 1.7-1.2.2-1.1.2-1.2-.2-.3-.5-.5z"/></svg>
+          Open WhatsApp
+        </a>
+      </div>
+      <p class="mt-6 text-[.8rem] text-[#9AA7BE]">Your name, WhatsApp number and answers stay private — they're only used to prepare this session for you.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative border-t border-[#0B1526]/[0.08] pt-16 pb-36 lg:pb-28">
+  <div class="mx-auto max-w-6xl px-5 sm:px-8">
+    <div class="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+      <div>
+        <a href="#top" class="font-display text-2xl font-bold leading-none tracking-[-0.02em] text-[#0B1526]">
+          <span class="font-normal italic text-[#5A6B85]">The</span> Divine <span class="text-[#2654B6]">Bakare</span>
+        </a>
+        <p class="mt-3 text-[.85rem] text-[#5A6B85]">Sales funnel strategist · Web designer</p>
+        <div class="mt-4 h-px w-28 bg-gradient-to-r from-[#2654B6] to-transparent"></div>
+      </div>
+      <nav class="flex flex-wrap gap-x-7 gap-y-3" aria-label="Footer">
+        <a href="#discover" class="nav-link !text-[.85rem]">What You'll Discover</a>
+        <a href="#foryou" class="nav-link !text-[.85rem]">Who It's For</a>
+        <a href="#details" class="nav-link !text-[.85rem]">Event Details</a>
+        <a href="#register" class="nav-link !text-[.85rem]">Reserve Your Seat</a>
+      </nav>
+    </div>
+    <div class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-[#0B1526]/[0.08] pt-6 text-center text-[.8rem] text-[#9AA7BE] sm:flex-row sm:text-left">
+      <p>© 2026 The Divine Bakare. All rights reserved.</p>
+      <p class="font-display italic">Built to help you monetize your genius.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STICKY COUNTDOWN BAR ============ -->
+<div id="sticky-bar" role="region" aria-label="Countdown to the live training">
+  <div class="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3 sm:px-8">
+    <div class="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
+      <p class="shrink-0 text-[.6rem] font-bold uppercase tracking-[0.2em] text-[#5A6B85]">Live in</p>
+      <div id="countdown" class="flex items-center gap-1.5" aria-live="polite" aria-label="Countdown">
+        <span class="cd-item"><b id="cd-d">00</b><em>days</em></span>
+        <span class="cd-sep">:</span>
+        <span class="cd-item"><b id="cd-h">00</b><em>hrs</em></span>
+        <span class="cd-sep">:</span>
+        <span class="cd-item"><b id="cd-m">00</b><em>min</em></span>
+        <span class="cd-sep">:</span>
+        <span class="cd-item"><b id="cd-s">00</b><em>sec</em></span>
+      </div>
+    </div>
+    <a href="#register" class="btn-primary shine-sweep shrink-0 !px-5 !py-2.5 !text-sm">Reserve My Seat</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var docEl = document.documentElement;
+
+  // Mobile menu
+  var menuBtn = document.getElementById('menu-btn');
+  var mobileMenu = document.getElementById('mobile-menu');
+  var iconOpen = document.getElementById('icon-open');
+  var iconClose = document.getElementById('icon-close');
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    iconOpen.classList.remove('hidden');
+    iconClose.classList.add('hidden');
+  }
+  menuBtn.addEventListener('click', function () {
+    var open = mobileMenu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    iconOpen.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+  });
+  mobileMenu.querySelectorAll('[data-menu-close], a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('[data-reveal]');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add('in');
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function (el) { io.observe(el); });
+    var conf = document.getElementById('confirmed');
+    if (conf) io.observe(conf);
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Count-up stats
+  var counts = document.querySelectorAll('.count');
+  function animateCount(el) {
+    var target = parseInt(el.getAttribute('data-count'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var dur = 1300, t0 = null;
+    function frame(t) {
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / dur, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * e) + suffix;
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+  if (counts.length && 'IntersectionObserver' in window) {
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          animateCount(en.target);
+          co.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    counts.forEach(function (c) { co.observe(c); });
+  } else {
+    counts.forEach(function (c) { c.textContent = (c.getAttribute('data-count') || '0') + (c.getAttribute('data-suffix') || ''); });
+  }
+
+  // Floating card stack — states, dots, tilt (pointer devices only)
+  var stage = document.querySelector('.card-stage');
+  var mainCard = document.querySelector('.card-main');
+  var layers = Array.prototype.slice.call(document.querySelectorAll('.card-layer'));
+  var states = Array.prototype.slice.call(document.querySelectorAll('.card-state'));
+  var dots = Array.prototype.slice.call(document.querySelectorAll('.card-dot'));
+
+  function setCardState(i) {
+    states.forEach(function (s, idx) { s.classList.toggle('active', idx === i); });
+    dots.forEach(function (d, idx) {
+      d.classList.toggle('active', idx === i);
+      d.setAttribute('aria-current', idx === i ? 'true' : 'false');
+    });
+    var focus = Math.min(Math.max(i - 2, 0), layers.length - 1);
+    layers.forEach(function (l, idx) { l.classList.toggle('focus', idx === focus); });
+  }
+
+  dots.forEach(function (d, idx) {
+    d.addEventListener('click', function () { setCardState(idx); });
+  });
+
+  // Auto-advance every 6s unless paused (hover/focus/keyboard)
+  var cardTimer = null;
+  var cardIndex = 0;
+  function cardNext() { setCardState(cardIndex = (cardIndex + 1) % states.length); }
+  function cardStart() {
+    cardStop();
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    cardTimer = setInterval(cardNext, 6000);
+  }
+  function cardStop() { if (cardTimer) { clearInterval(cardTimer); cardTimer = null; } }
+  if (stage) {
+    ['mouseenter', 'focusin', 'touchstart'].forEach(function (ev) {
+      stage.addEventListener(ev, cardStop);
+    });
+    ['mouseleave', 'focusout'].forEach(function (ev) {
+      stage.addEventListener(ev, cardStart);
+    });
+    cardStart();
+  }
+
+  // Tilt on fine-pointer devices (preserves stack perspective)
+  if (mainCard && stage && window.matchMedia && window.matchMedia('(pointer: fine)').matches) {
+    stage.addEventListener('mousemove', function (e) {
+      var r = stage.getBoundingClientRect();
+      var px = (e.clientX - r.left) / r.width - 0.5;
+      var py = (e.clientY - r.top) / r.height - 0.5;
+      mainCard.style.transform = 'perspective(900px) rotateX(' + (-py * 5) + 'deg) rotateY(' + (px * 7) + 'deg) translateY(-2px)';
+    });
+    stage.addEventListener('mouseleave', function () {
+      mainCard.style.transform = '';
+    });
+  }
+
+  // Sticky countdown bar visibility (past hero, hides at the form)
+  var sticky = document.getElementById('sticky-bar');
+  var registerSec = document.getElementById('register');
+  function updateSticky() {
+    var regTop = registerSec.getBoundingClientRect().top + window.scrollY;
+    var past = window.scrollY > 480;
+    var reached = window.scrollY > regTop - 150;
+    sticky.classList.toggle('sticky-show', past && !reached);
+  }
+  window.addEventListener('scroll', updateSticky, { passive: true });
+  window.addEventListener('resize', updateSticky);
+  updateSticky();
+
+  // Countdown → Saturday 29 Aug 2026, 8:00 PM WAT (19:00 UTC)
+  var target = Date.UTC(2026, 7, 29, 19, 0, 0);
+  var cdD = document.getElementById('cd-d');
+  var cdH = document.getElementById('cd-h');
+  var cdM = document.getElementById('cd-m');
+  var cdS = document.getElementById('cd-s');
+  function pad(n) { return n < 10 ? '0' + n : String(n); }
+  function tick() {
+    var diff = target - Date.now();
+    if (diff <= 0) {
+      cdD.textContent = '00'; cdH.textContent = '00'; cdM.textContent = '00'; cdS.textContent = '00';
+      return;
+    }
+    cdD.textContent = pad(Math.floor(diff / 86400000));
+    cdH.textContent = pad(Math.floor(diff / 3600000) % 24);
+    cdM.textContent = pad(Math.floor(diff / 60000) % 60);
+    cdS.textContent = pad(Math.floor(diff / 1000) % 60);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  // Multi-step form
+  var form = document.getElementById('reg-form');
+  var panels = Array.prototype.slice.call(form.querySelectorAll('.step-panel'));
+  var total = panels.length;
+  var current = 0;
+  var btnNext = document.getElementById('btn-next');
+  var btnNextText = document.getElementById('btn-next-text');
+  var btnNextArrow = document.getElementById('btn-next-arrow');
+  var btnBack = document.getElementById('btn-back');
+  var stepLabel = document.getElementById('step-label');
+  var barFill = document.getElementById('bar-fill');
+  var errEl = document.getElementById('form-error');
+  var sellDetail = document.getElementById('sell-detail');
+
+  function showStep(i) {
+    current = i;
+    panels.forEach(function (p, idx) { p.classList.toggle('active', idx === i); });
+    stepLabel.textContent = String(i + 1);
+    barFill.style.transform = 'scaleX(' + ((i + 1) / total) + ')';
+    btnBack.classList.toggle('hidden', i === 0);
+    var last = i === total - 1;
+    btnNextText.textContent = last ? 'Reserve My Free Seat' : 'Continue';
+    btnNextArrow.classList.toggle('hidden', last);
+    errEl.classList.add('hidden');
+  }
+
+  function validate(panel) {
+    var fields = panel.querySelectorAll('[required]');
+    for (var i = 0; i < fields.length; i++) {
+      var f = fields[i];
+      if (!f.value.trim()) {
+        f.focus();
+        f.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        errEl.textContent = 'Please fill in ' + (f.labels && f.labels.length ? f.labels[0].textContent.replace(' *', '').toLowerCase() : 'the required field') + ' before continuing.';
+        errEl.classList.remove('hidden');
+        return false;
+      }
+      if (f.type === 'email' && f.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.value)) {
+        f.focus();
+        errEl.textContent = "That email address doesn't look right — please check it.";
+        errEl.classList.remove('hidden');
+        return false;
+      }
+    }
+    var radios = panel.querySelectorAll('input[type="radio"]');
+    if (radios.length) {
+      var any = false;
+      radios.forEach(function (r) { if (r.checked) any = true; });
+      if (!any) {
+        errEl.textContent = 'Please choose one option to continue.';
+        errEl.classList.remove('hidden');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  form.querySelectorAll('input[name="selling"]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      var show = r.value === 'Yes' && r.checked;
+      sellDetail.classList.toggle('hidden', !show);
+      document.getElementById('f-sell').required = show;
+    });
+  });
+
+  btnBack.addEventListener('click', function () {
+    if (current > 0) showStep(current - 1);
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate(panels[current])) return;
+    if (current < total - 1) {
+      showStep(current + 1);
+      window.scrollTo({ top: document.getElementById('register').offsetTop - 96, behavior: 'smooth' });
+      return;
+    }
+    // Final step — build WhatsApp handoff to Divine's number
+    var name = (form.querySelector('#f-name').value || '__________').trim();
+    var phone = (form.querySelector('#f-wa').value || '').trim();
+    var DIVINE_WA = '2348055791348';
+    var msg = 'Hi Divine \uD83D\uDC4B\n\nI just completed my registration for "How Smart Nigerians Are Making Their First \u20A650k\u2013\u20A6200k Selling What They Already Know... Without Learning Another Skill."\n\nMy name is ' + name + '.' + (phone ? '\n\nMy WhatsApp number is ' + phone + '.' : '') + '\n\nLooking forward to the training!';
+    document.getElementById('wa-link').setAttribute('href', 'https://wa.me/' + DIVINE_WA + '?text=' + encodeURIComponent(msg));
+    document.getElementById('register').classList.add('hidden');
+    var conf = document.getElementById('confirmed');
+    conf.classList.remove('hidden');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(function () { conf.querySelector('[data-reveal]').classList.add('in'); }, 300);
+  });
+})();
+</script>
+</body>
+</html>
