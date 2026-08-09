@@ -50,6 +50,15 @@
 - **Spacing:** Use intentional, consistent spacing tokens — not random Tailwind steps.
 - **Depth:** Surfaces should have a layering system (base → elevated → floating), not all sit at the same z-plane.
 
+## Deployment Workflow (IMPORTANT)
+- **Local-first:** All changes are made to `index.html` locally and previewed on `http://localhost:3000`. Nothing goes live without explicit instruction.
+- **Never push/deploy automatically.** Do not run `git commit`, `git push`, `vercel deploy`, or `vercel --prod` unless the user explicitly says something like "push it", "make it live", "deploy".
+- "Make it live" = git add + commit + push to `origin` (https://github.com/thedivinebakare/selloutreg) + `vercel --prod --name selloutreg`.
+- Live URL: https://selloutreg.vercel.app (verified HTTP 200).
+- After deploy, verify with `Invoke-WebRequest` (expect HTTP 200) and tell the user the live link.
+- Git identity (local to this repo): Divine Bakare <officialdivinebakare@gmail.com>.
+- `v3.html` = frozen user-approved snapshot; never edit it.
+
 ## Hard Rules
 - Do not add sections, features, or content not in the reference
 - Do not "improve" a reference design — match it

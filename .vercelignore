@@ -1,6 +1,3 @@
 node_modules/
 temporary screenshots/
-.vscode/
-*.log
-
-.vercel
+.git/
