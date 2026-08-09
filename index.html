@@ -73,7 +73,7 @@
     .kicker { font-family: 'IBM Plex Mono', monospace; font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
 
     /* Money underline sweep — signature */
-    .money-sweep { position: relative; }
+    .money-sweep { position: relative; white-space: nowrap; }
     .money-sweep::after {
       content: ""; position: absolute; left: 0; right: 0; bottom: -.08em; height: .1em;
       background: linear-gradient(90deg, var(--accent), #FFA37D);
@@ -219,8 +219,8 @@
           <span>Free private live training · Sat 29 Aug · 8:00 PM WAT</span>
         </span>
 
-        <h1 class="font-display mt-7 text-[2.55rem] font-bold leading-[1.03] tracking-[-0.035em] sm:text-[3.4rem] lg:text-[4.1rem]">
-          Sell what you already know.<br>
+        <h1 class="font-display mt-7 text-[2.1rem] font-bold leading-[1.03] tracking-[-0.035em] sm:text-[3.4rem] lg:text-[4.1rem]">
+          Sell what you already know.<br class="hidden sm:inline">
           <span class="text-[#FBFCF8]/90">Make your first</span>
           <span class="money-sweep gradient-text">₦50k–₦200k.</span>
         </h1>
