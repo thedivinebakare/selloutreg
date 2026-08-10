@@ -941,6 +941,9 @@
         var DIVINE_WA = '2348055791348';
         var msg = 'Hi Divine 👋\n\nI just completed my registration for "How Smart Nigerians Are Making Their First ₦50k–₦200k Selling What They Already Know... Without Learning Another Skill."\n\nMy name is ' + name + '.' + (phone ? '\n\nMy WhatsApp number is ' + phone + '.' : '') + '\n\nLooking forward to the training!';
         document.getElementById('wa-link').setAttribute('href', 'https://wa.me/' + DIVINE_WA + '?text=' + encodeURIComponent(msg));
+        var waUrl = 'https://wa.me/' + DIVINE_WA + '?text=' + encodeURIComponent(msg);
+        var waWin = window.open(waUrl, '_blank');
+        if (!waWin) window.location.href = waUrl;
         document.getElementById('register').classList.add('hidden');
         var conf = document.getElementById('confirmed');
         conf.classList.remove('hidden');
