@@ -914,8 +914,30 @@
           window.scrollTo({ top: document.getElementById('register').offsetTop - 96, behavior: 'smooth' });
           return;
         }
+        var GAS_URL = 'https://script.google.com/macros/s/AKfycbw6k-x0ibAamU-Gh85-JWD83QuG2omOM_7Lnprxvlnquyo2ZEzWL-Vr47WekYtgBC4LBA/exec';
         var name = (form.querySelector('#f-name').value || '__________').trim();
         var phone = (form.querySelector('#f-wa').value || '').trim();
+        function radioVal(field) { var el = form.querySelector('input[name="' + field + '"]:checked'); return el ? el.value : ''; }
+        var selling = radioVal('selling');
+        var payload = {
+          name: name,
+          whatsapp: phone,
+          email: (form.querySelector('#f-email').value || '').trim(),
+          who: radioVal('who'),
+          selling: selling,
+          what_sell: selling === 'Yes' ? (form.querySelector('#f-sell').value || '').trim() : '',
+          challenge: (form.querySelector('#f-challenge').value || '').trim(),
+          investment: radioVal('investment'),
+          goal: (form.querySelector('#f-goal').value || '').trim()
+        };
+        try {
+          fetch(GAS_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(payload)
+          }).catch(function () {});
+        } catch (err) {}
         var DIVINE_WA = '2348055791348';
         var msg = 'Hi Divine 👋\n\nI just completed my registration for "How Smart Nigerians Are Making Their First ₦50k–₦200k Selling What They Already Know... Without Learning Another Skill."\n\nMy name is ' + name + '.' + (phone ? '\n\nMy WhatsApp number is ' + phone + '.' : '') + '\n\nLooking forward to the training!';
         document.getElementById('wa-link').setAttribute('href', 'https://wa.me/' + DIVINE_WA + '?text=' + encodeURIComponent(msg));

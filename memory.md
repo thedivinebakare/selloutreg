@@ -1,82 +1,61 @@
 # Memory — Sell Out Campaign
 
-Session note: written 2026-08-08 to resume from where we stopped. Keep this updated.
+Session note: updated 2026-08-10. Keep this current — overwrite stale sections.
 
 ## Project overview
 - **Landing page** for Divine Bakare's training: *"How Smart Nigerians Are Making Their First ₦50k–₦200k Selling What They Already Know... Without Learning Another Skill."*
 - **Location:** `C:\Users\NexusPC\Projects\Sell Out Campaign`
-- **Not a git repo** (as of last session). No commits, no remote.
-- **Single-file site:** everything in `index.html`, all styles inline, Tailwind via CDN (`https://cdn.tailwindcss.com`), mobile-first.
+- **Git repo:** yes — remote `origin` = https://github.com/thedivinebakare/selloutreg.git, branch `main`, git identity Divine Bakare <officialdivinebakare@gmail.com>.
+- **Single-file site:** `index.html`, all styles inline, Tailwind via CDN, mobile-first.
+- **Live:** https://selloutreg.vercel.app (Vercel, project `selloutreg`, linked via `.vercel/project.json`). Vercel CLI is now logged in on this machine.
 
 ## Files in project root
-- `index.html` — **V3 (CURRENT LIVE, USER-APPROVED 2026-08-09)**
-- `v3.html` — **FROZEN SNAPSHOT of V3** — the exact version the user approved ("store this so new changes don't affect it"). If future edits go wrong, restore `index.html` from `v3.html`. Do NOT edit v3.html.
-- `v25.html` — backup of the previous (rejected) card-stack hero version
-- `v2.html` — earlier approved V2
-- `serve.mjs` — local static server on port 3000 (`node serve.mjs`)
-- `screenshot.mjs` — puppeteer screenshot script (1280x800), saves to `temporary screenshots/screenshot-N[-label].png`
-- `brand_assets/` — real brand assets; **`My Image (1).jpg` is Divine's portrait** (used in About section)
-- `reference/` — reference images (structural blueprint only, re-render in brand style)
-- `CLAUDE.md` — frontend rules (invoke `frontend-design` skill first each session; never screenshot `file://`; always serve on localhost)
+- `index.html` — **V3 (LIVE, APPROVED 2026-08-09)** + post-launch fixes below.
+- `v3.html` — **FROZEN SNAPSHOT of V3**. Do NOT edit. Restore point if edits go wrong.
+- `v25.html` — rejected card-stack hero version. `v2.html` — earlier version.
+- `serve.mjs` — local server on port 3000 (`node serve.mjs`).
+- `screenshot.mjs` — desktop (1280x800) puppeteer screenshot → `temporary screenshots/screenshot-N[-label].png`.
+- `brand_assets/` — real brand assets; **`My Image (1).jpg` = Divine's portrait** (About section + hero invite card).
+- `reference/` — structural blueprint images (re-render in brand style, don't copy look).
+- `CLAUDE.md` — frontend rules: invoke `frontend-design` skill first each session; never screenshot `file://`; always serve localhost; deployment workflow.
 
-## V1 vs V2 vs V3
-- **V3 is LIVE and APPROVED (2026-08-09).** Full redesign: dark ink hero frame → pearl body → ink footer (ONE theme switch). Type: **Bricolage Grotesque** display + **Archivo** body + **IBM Plex Mono** labels. Signature: `₦50k–₦200k` blue-gradient with self-drawing orange underline (`money-sweep`). Sections: hero+marquee (on ink) → problem (hairline rows) → "What if…" statement → Inside (sticky col + numbered 01/02/03 Offer/Position/Sell) → Who It's For (checklist + dark card) → About (real portrait) → Details → Register (6-step form) → Confirmed → ink footer + sticky countdown bar.
-- **Key lesson:** the flashy rotating card-stack hero (v25) was REJECTED. User's brand = minimalist/premium/strategic (see `brand_assets/visual-identity.md`). Keep heroes calm and typography-driven.
-- **Restore:** `v3.html` (approved) → `index.html`. `v25.html` = rejected card-stack. `v2.html` = earlier version.
-- **V1** (earliest): no backup; survives only in `temporary screenshots/screenshot-{2,3,4}*.png`.
-
-
-## V2 design system
-- **Brand palette:** royal navy `#16357F`, `#2654B6`, `#3A6FE0`, deep ink `#0B1526`, accent orange `#FF6B35` (derive from these, never default Tailwind indigo/blue).
-- **Typography:** display = **Fraunces** serif (headings, `font-display`), body = system sans. Tight tracking `-0.03em` on big headings, `line-height 1.7` body.
-- **Header/footer wordmark:** "The Divine Bakare" (Fraunces) — text only, no image in nav.
-- **Sections (`id` order):** `top` (hero), `pattern`, `whatif`, `discover`, `foryou`, `about`, `details`, `reserve`, `register`, `confirmed` (form + success panel).
-- **Signature interactions:** marquee strip (CSS `marquee` anim, 2 duplicated groups, seamless), count-up stats (2, 4, 90, 100%), hero h1 shine (`hshine` ::after anim), tilt card (`#tilt-card`), reveal-on-scroll (`[data-reveal]`, `.in` class via IntersectionObserver), layered color-tinted shadows (`.shadow-royal`), SVG grain texture, gradient overlays + `mix-blend-multiply` on images.
+## Design system (V3)
+- Palette: ink `#0B1526`, royal deep `#16357F`, royal `#2654B6`, royal light `#3A6FE0`, pearl `#FBFCF8`, accent orange `#FF6B35`. CSS vars in `:root`.
+- Type: **Bricolage Grotesque** display + **Archivo** body + **IBM Plex Mono** labels.
+- Signature: `₦50k–₦200k` blue-gradient (`gradient-text`) with self-drawing orange underline (`money-sweep`, `.money-sweep::after` sweep animation).
+- Theme: ink hero frame → pearl body → ink footer (ONE switch). Sections: hero+marquee (ink) → problem (hairline rows) → "What if…" → Inside (01/02/03 Offer/Position/Sell) → Who It's For → About (portrait) → Details → Register (6-step form) → Confirmed → footer + sticky countdown bar.
 
 ## Registration form → WhatsApp
-- Multi-step form (name / WhatsApp / email → who → selling → sell what → challenge → investment → goal). On submit builds a WhatsApp deep link to **`2348055791348`** (`https://wa.me/2348055791348?text=...`) including name **and phone**, shows `#confirmed` panel.
-- `DIVINE_WA` constant in the submit handler at `index.html:1125`.
+- Multi-step form; on submit builds `https://wa.me/2348055791348?text=...` including name + phone, shows `#confirmed`. `DIVINE_WA` constant in submit handler.
 
-## V2 QA results — ALL PASSED (2026-08-08)
-- No horizontal overflow at 320 / 375 / 390 / 1280 px
-- No page errors / console errors
-- Count-up animates to 2, 4, 90, 100% when stats strip scrolls into view
-- Marquee, tilt card, h1 shine, reveals all working
-- Form flow works end-to-end; WA link correct with name + phone
-- About portrait (`brand_assets/My Image (1).jpg`) loads (2560px natural width)
-- Desktop viewport 1280x800 shows 2 reveals at load; mobile reveals on scroll (intended)
+## 2026-08-10 session — hero polish + go-to-top (LIVE)
+Committed `fca8e49`, pushed, deployed, verified HTTP 200:
+1. **Headline → solid 4 lines at ALL widths.** Replaced `<br>` + spans with four `block` spans: `Sell what you` / `already know.` / `Make your first` / `₦50k–₦200k.` (money-sweep span also `block`). Was: orphaned "know." at ~430px, collapsed to 2 lines on tablets.
+2. **Pre-headline pill → controlled 2-line on mobile**, 1 line from `sm`. `items-start` + `mt-[6px]` dot aligned to first line; text = `Free private live training<br>Sat 29 Aug · 8:00 PM WAT` (mobile) / one line (sm+ via `hidden sm:inline` + `sm:hidden`). Removed `flex-wrap`; `py-2` mobile, `py-1.5` sm.
+3. **Go-to-top button** (`#to-top`): fixed bottom-right (`right: clamp(1.25rem,4vw,2rem); bottom: 5rem; z-index:70`), 3rem ink circle, royal ring `rgba(58,111,224,.38)`, layered royal-tinted shadow, pearl stroke arrow. `.show` toggled by scroll > 700px; click → smooth scroll top (reduced-motion aware). Sits above sticky bar (z-60) — no overlap.
 
-**Fixes made during verification:**
-- Nav: removed invalid `h-15` utility → `min-h-16` (`index.html` header nav)
-- What-If panel: added `relative` so its glow anchors inside the panel
-- About halo: `-inset-6` → `-inset-3 lg:-inset-6` to stop 4px mobile overflow
-- WA message: re-added phone line ("My WhatsApp number is ...")
+## 2026-08-10 session 2 — mobile headline size + pill one-liner (LIVE)
+Committed `30b4feb`, pushed, deployed, verified HTTP 200:
+1. **Mobile headline bigger:** `text-[2.9rem]` (46.4px) at ≥360px, `max-[359px]:text-[2.55rem]` fallback. Kept 4 solid lines.
+2. **Orange underline fix:** money-sweep span is `block w-fit` → the sweep underline shrink-wraps exactly under `₦50k–₦200k.` (was spanning full column width). Underline box == text box at all widths (verified 258/291/337/401px).
+3. **Preheadline → one line on mobile:** direct flex items (dot + `<span class="hidden sm:inline">` desktop full text + `<span class="sm:hidden">` = "Free Live Training · Sat 29 Aug"). Compact pill (292px at 375, 276px at 320 via `max-[349px]:px-2.5 max-[349px]:gap-1.5`). Desktop keeps full "Free private live training · Sat 29 Aug · 8:00 PM WAT". Time dropped on mobile pill (still on invite card/countdown).
+- **Gotcha:** `elementHandle.screenshot()` (used by `mobile-shot.mjs`) HANGS on this Chrome; use `page.screenshot({clip})` instead (`mobile-shot2.mjs` works).
+
+## Verification (2026-08-10)
+- Headline = 4 lines at 320/375/414/430/640/768/1024/1280. No horizontal overflow (marquee excluded). No console errors.
+- Go-to-top: hidden at top, visible after scroll, click scrolls to 0 and hides, no overlap with sticky bar.
+- Live page checked: HTTP 200, `#to-top` + block headline present.
+- **Known pre-existing quirk (NOT fixed, out of scope):** sticky countdown bar at 320px — the "Reserve My Seat" button clips past the right edge (bar content ~358px vs 320px). Doesn't cause horizontal scroll. Would need px/gap/cell shrink on very small screens.
 
 ## ENVIRONMENT / TOOLING
-- **Dev server:** run `node serve.mjs` → `http://localhost:3000` (was running, pid 11684; verify with `Invoke-WebRequest http://localhost:3000`)
-- **Screenshot:** `node screenshot.mjs http://localhost:3000 [label]` → PNGs in `temporary screenshots/`. Read PNGs with the Read tool for visual diffing.
-- **Puppeteer:** installed at `C:/Users/NexusPC/AppData/Local/Temp/puppeteer-test/`; Chrome cache `C:/Users/NexusPC/.cache/puppeteer/`
-- **QA scripts** (working copies live in `C:/Users/NexusPC/AppData/Local/Temp/puppeteer-test/`): `v2qa4.js` (full verify: overflow/errors/marquee/tilt/counts/reveals/form/WA), `diag.js` (overflow offenders + counts + WA), `diag2.js` (unclipped overflow), `diag3.js` (multi-width overflow + WA phone). Outputs written to `C:/Users/NexusPC/AppData/Local/Temp/opencode/*-out.txt`.
-- **Working launch pattern:** `puppeteer.launch({ headless:true, executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe', userDataDir: <UNIQUE timestamp+random dir> })`. **Never reuse a fixed profile dir.**
+- **Dev server:** `node serve.mjs` → http://localhost:3000. Start before screenshots/QA.
+- **Screenshots:** `node screenshot.mjs http://localhost:3000 [label]` (desktop). Mobile helper: `C:\Users\NexusPC\AppData\Local\Temp\puppeteer-test\mobile-shot.mjs` (env `VW` width, captures hero section, 2x DPR). This model (big-pickle) CANNOT read images — verify via DOM geometry instead.
+- **Puppeteer:** installed at `C:/Users/NexusPC/AppData/Local/Temp/puppeteer-test/`; Chrome `C:/Program Files/Google/Chrome/Application/chrome.exe`; cache `C:/Users/NexusPC/.cache/puppeteer/`. Always unique timestamped profile dir; **kill stale chrome**: `Get-CimInstance Win32_Process -Filter "Name='chrome.exe'" | ? { $_.CommandLine -match 'profile-' } | % { Stop-Process -Id $_.ProcessId -Force }`.
+- **QA scripts** in puppeteer-test: `verify.mjs` (h1 lines + pill + overflow + toTop at 8 widths), `verify-top.mjs` (sticky bar + toTop click), `diag-hero.mjs`/`diag-lines.mjs` (line breakdowns). Run with `workdir` there.
+- **PowerShell flakiness:** node scripts hang sometimes from `Temp\opencode`; run from `puppeteer-test` with workdir. `cmd /c ...` also worked.
 
-## KNOWN GOTCHAS (important)
-1. **`screenshot.mjs` profile lock:** it uses a FIXED `userDataDir` (`~/.cache/puppeteer/profile`) → a stale headless Chrome locks it → launch hangs/fails with "The browser is already running for ... Use a different userDataDir". **Recommended fix (not yet applied):** timestamped profile per run. Last session's screenshot step never completed because of this.
-2. **PowerShell flakiness:** commands intermittently hang with "(no output)" + timeout, especially node scripts run from `...\Temp\opencode\`. **Workaround that works:** write the script directly into `...\Temp\puppeteer-test\` and run with `workdir` there (node finds its local modules). `cmd /c ...` also worked when PowerShell hung.
-3. **Killing stale headless Chrome:** `wmic process where "name='chrome.exe'" get ProcessId,CommandLine /format:csv | Select-String puppet` → extract PID → `taskkill /PID <pid> /F /T`.
-4. Node on this machine: `node v24.18.0`.
-
-## IN PROGRESS / RESUME HERE TOMORROW — GitHub + Vercel deploy
-User request: **"push to GitHub and then Vercel"** (V2 live). Approved plan:
-1. Install **GitHub CLI** (`winget install --id GitHub.cli`) → `gh auth login` (browser). ⚠️ **STATUS: install FAILED / not verified** — the winget command returned empty output and no `gh.exe` was found at `C:\Program Files\GitHub CLI\gh.exe`. Retry needed (maybe `winget upgrade --all` or download from https://github.com/cli/cli/releases).
-2. Install **Vercel CLI** (`npm i -g vercel`) → `vercel login` (browser) → `vercel --prod`. ⚠️ **STATUS: not installed** (`vercel.cmd` not found).
-3. **Git identity NOT provided yet** — user chose "I'll type it" but hasn't given name/email. Ask for them before committing (git has no global user.name/email configured).
-4. Then: `git init` → add `.gitignore` (e.g., `temporary screenshots/`) → commit → `gh repo create sell-out-campaign --public --source=. --push` → `vercel --prod`.
-
-Auth decisions from user: **browser login for both gh and Vercel** (no PAT). Git Credential Manager is bundled with Git for Windows (`git-credential-manager.exe` present), so HTTPS push can use browser OAuth.
-
-## NEXT SESSION CHEATSHEET
-- Start server: `node serve.mjs` (in project root, background) before any screenshot.
-- Preview V2: `http://localhost:3000`
-- Verify after edits: run `v2qa4.js` from `...\puppeteer-test\` and read `...\Temp\opencode\v2-qa-out.txt`.
-- Visual pass: `node screenshot.mjs http://localhost:3000 v2-check` then Read the PNG.
-- Resume deploy: retry gh + vercel install, ask user for git name/email, then init/push/deploy.
+## DEPLOY WORKFLOW (per CLAUDE.md — "make it live")
+1. `git add index.html && git commit -m "..."` → `git push origin main`
+2. `vercel --prod` (project is linked; CLI is logged in now — `vercel login` already done 2026-08-10).
+3. Verify: `Invoke-WebRequest https://selloutreg.vercel.app` → expect 200; check new markup present. Tell user the live link.
+- **Never deploy without explicit instruction.** Don't touch `v3.html`.
