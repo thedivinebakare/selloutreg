@@ -156,6 +156,21 @@
     .cd-cell .n { font-family: 'Bricolage Grotesque', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--pearl); font-variant-numeric: tabular-nums; }
     .cd-cell .l { font-family: 'IBM Plex Mono', monospace; font-size: .55rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(251,252,248,.45); }
 
+    /* Go-to-top */
+    #to-top {
+      position: fixed; right: clamp(1.25rem, 4vw, 2rem); bottom: 5rem; z-index: 70;
+      display: grid; place-items: center;
+      width: 3rem; height: 3rem; border-radius: 9999px;
+      background: var(--ink); color: var(--pearl);
+      border: 1px solid rgba(58,111,224,.38);
+      box-shadow: 0 2px 6px rgba(4,9,20,.35), 0 18px 34px -14px rgba(38,84,182,.55);
+      opacity: 0; visibility: hidden; transform: translateY(12px);
+      transition: opacity .4s ease, transform .45s cubic-bezier(.16,1,.3,1), background-color .3s ease, border-color .3s ease, box-shadow .3s ease, visibility .4s;
+    }
+    #to-top.show { opacity: 1; visibility: visible; transform: none; }
+    #to-top:hover { transform: translateY(-3px); background: var(--royal-deep); border-color: rgba(58,111,224,.75); box-shadow: 0 4px 10px rgba(4,9,20,.35), 0 24px 44px -14px rgba(38,84,182,.65); }
+    #to-top:active { transform: translateY(0) scale(.95); }
+
     /* Errors */
     #form-error[role="alert"] { color: #B0454B; font-weight: 600; }
 
@@ -214,15 +229,18 @@
 
     <div class="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1.05fr_.85fr] lg:gap-20">
       <div data-reveal>
-        <span class="inline-flex flex-wrap items-center gap-2.5 rounded-full border border-[#FBFCF8]/15 bg-[#FBFCF8]/[0.06] px-4 py-1.5 mono text-[.66rem] font-medium leading-relaxed tracking-[0.14em] text-[#FBFCF8]/85">
-          <span class="pulse-dot inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF6B35]"></span>
-          <span>Free private live training · Sat 29 Aug · 8:00 PM WAT</span>
+        <span class="inline-flex items-start gap-2.5 rounded-full border border-[#FBFCF8]/15 bg-[#FBFCF8]/[0.06] px-4 py-2 mono text-[.66rem] font-medium leading-[1.55] tracking-[0.14em] text-[#FBFCF8]/85 sm:items-center sm:py-1.5">
+          <span class="pulse-dot mt-[6px] inline-flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#FF6B35] sm:mt-0"></span>
+          <span class="text-[#FBFCF8]/90">
+            Free private live training<span class="sm:hidden"><br>Sat 29 Aug · 8:00 PM WAT</span><span class="hidden sm:inline"> · Sat 29 Aug · 8:00 PM WAT</span>
+          </span>
         </span>
 
         <h1 class="font-display mt-7 text-[2.55rem] font-bold leading-[1.03] tracking-[-0.035em] sm:text-[3.4rem] lg:text-[4.1rem]">
-          Sell what you already know.<br>
-          <span class="text-[#FBFCF8]/90">Make your first</span>
-          <span class="money-sweep gradient-text">₦50k–₦200k.</span>
+          <span class="block">Sell what you</span>
+          <span class="block">already know.</span>
+          <span class="block text-[#FBFCF8]/90">Make your first</span>
+          <span class="money-sweep gradient-text block">₦50k–₦200k.</span>
         </h1>
 
         <p class="mt-6 max-w-lg text-[1.05rem] leading-[1.75] text-[#FBFCF8]/70 sm:text-lg">
@@ -732,6 +750,10 @@
     </div>
   </div>
 
+  <button id="to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
   <script>
     (function () {
       document.documentElement.classList.add('js');
@@ -781,6 +803,19 @@
       window.addEventListener('scroll', updateSticky, { passive: true });
       window.addEventListener('resize', updateSticky);
       updateSticky();
+
+      // Go-to-top button
+      var toTop = document.getElementById('to-top');
+      function updateToTop() {
+        toTop.classList.toggle('show', window.scrollY > 700);
+      }
+      window.addEventListener('scroll', updateToTop, { passive: true });
+      updateToTop();
+      toTop.addEventListener('click', function () {
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+        toTop.blur();
+      });
 
       // Countdown → Saturday 29 Aug 2026, 8:00 PM WAT (19:00 UTC)
       var target = Date.UTC(2026, 7, 29, 19, 0, 0);
