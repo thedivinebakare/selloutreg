@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crop Tool — Sell Out Proofs</title>
+<style>
+  :root { --ink: #0B1526; --pearl: #FBFCF8; --blue: #2654B6; --accent: #FF6B35; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', system-ui, Arial, sans-serif; background: var(--pearl); color: var(--ink); }
+  header { position: sticky; top: 0; z-index: 20; background: var(--ink); color: #fff; padding: 16px 24px; box-shadow: 0 10px 30px -12px rgba(11,21,38,.5); }
+  header h1 { margin: 0; font-size: 17px; letter-spacing: -0.01em; }
+  header p { margin: 4px 0 0; font-size: 12.5px; opacity: .75; }
+  #actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
+  button { font: 700 12.5px 'Segoe UI', system-ui, Arial, sans-serif; border: 0; border-radius: 8px; padding: 9px 16px; cursor: pointer; }
+  #copyBtn { background: var(--accent); color: var(--ink); }
+  #resetBtn { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25); }
+  #status { font: 12px/1.5 monospace; opacity: .9; margin-left: 4px; }
+  #outputWrap { display: none; margin-top: 10px; }
+  #output { width: 100%; min-height: 90px; font: 11px/1.6 monospace; background: rgba(255,255,255,.08); color: #9fdc8f; border: 1px solid rgba(255,255,255,.2); border-radius: 8px; padding: 8px; resize: vertical; }
+  main { padding: 24px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 26px; }
+  .card { border: 1px solid #E3E8F0; background: #fff; border-radius: 14px; padding: 14px; box-shadow: 0 1px 2px rgba(11,21,38,.04), 0 16px 40px -24px rgba(22,53,127,.35); }
+  .card-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 10px; }
+  .card-head h2 { margin: 0; font: 700 12px/1.2 monospace; }
+  .card-head .dims { font: 10px/1.2 monospace; color: #5A6B85; white-space: nowrap; }
+  .stage { position: relative; display: block; line-height: 0; user-select: none; touch-action: none; }
+  .stage img { display: block; width: 100%; border-radius: 8px; }
+  .cropbox { position: absolute; border: 2px solid var(--accent); background: rgba(255,107,53,.08); box-shadow: 0 0 0 9999px rgba(11,21,38,.5); cursor: move; touch-action: none; }
+  .handle { position: absolute; width: 13px; height: 13px; background: #fff; border: 2px solid var(--accent); border-radius: 50%; }
+  .handle.nw { left: -7px; top: -7px; cursor: nwse-resize; }
+  .handle.ne { right: -7px; top: -7px; cursor: nesw-resize; }
+  .handle.sw { left: -7px; bottom: -7px; cursor: nesw-resize; }
+  .handle.se { right: -7px; bottom: -7px; cursor: nwse-resize; }
+  .readout { position: absolute; left: 0; bottom: -24px; width: 100%; font: 10.5px/1.4 monospace; color: #5A6B85; pointer-events: none; white-space: nowrap; }
+  .readout b { color: var(--blue); }
+  .stage-wrap { padding-bottom: 26px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Crop Tool — Sell Out Proofs</h1>
+  <p>Drag the orange box to frame the message (crop out phone chrome / sender bars). Readout shows natural pixels. Reset = full image.</p>
+  <div id="actions">
+    <button id="copyBtn" type="button">Copy coordinates (JSON)</button>
+    <button id="resetBtn" type="button">Reset all</button>
+    <span id="status"></span>
+    <div id="outputWrap"><textarea id="output" readonly spellcheck="false"></textarea></div>
+  </div>
+</header>
+<main>
+  <div class="cards" id="cards"></div>
+</main>
+<script>
+(function () {
+  var FILES = [
+    "Ajet Review.jpg",
+    "King David review.jpg",
+    "Malik Esther Review.jpg",
+    "Morayo Review.jpg",
+    "Sales strategy Review.png",
+    "Solomon Review.jpg",
+    "TBS Review.jpg"
+  ];
+  var MIN = 0.04;
+  var state = {};      // file -> {x,y,w,h} fractions
+  var els = {};        // file -> {stage, box, readout, img}
+  var drag = null;
+
+  var cards = document.getElementById("cards");
+  FILES.forEach(function (file) {
+    var card = document.createElement("div");
+    card.className = "card";
+
+    var head = document.createElement("div");
+    head.className = "card-head";
+    var h = document.createElement("h2");
+    h.textContent = file;
+    var dims = document.createElement("span");
+    dims.className = "dims";
+    head.appendChild(h);
+    head.appendChild(dims);
+    card.appendChild(head);
+
+    var wrap = document.createElement("div");
+    wrap.className = "stage-wrap";
+    var stage = document.createElement("div");
+    stage.className = "stage";
+
+    var img = document.createElement("img");
+    img.src = "proofs/" + file.replace(/ /g, "%20");
+    img.alt = file;
+    stage.appendChild(img);
+
+    var box = document.createElement("div");
+    box.className = "cropbox";
+    ["nw", "ne", "sw", "se"].forEach(function (pos) {
+      var hnd = document.createElement("div");
+      hnd.className = "handle " + pos;
+      hnd.dataset.pos = pos;
+      box.appendChild(hnd);
+    });
+    stage.appendChild(box);
+
+    var readout = document.createElement("div");
+    readout.className = "readout";
+    stage.appendChild(readout);
+
+    wrap.appendChild(stage);
+    card.appendChild(wrap);
+    cards.appendChild(card);
+
+    state[file] = { x: 0, y: 0, w: 1, h: 1 };
+    els[file] = { stage: stage, box: box, readout: readout, img: img };
+
+    img.addEventListener("load", function () {
+      dims.textContent = img.naturalWidth + "x" + img.naturalHeight + "px";
+      render(file);
+    });
+
+    box.addEventListener("pointerdown", function (e) {
+      e.preventDefault();
+      var handle = e.target.classList.contains("handle") ? e.target.dataset.pos : null;
+      var s = state[file];
+      var start = getPos(file);
+      drag = {
+        file: file, handle: handle,
+        sx: start.x, sy: start.y, sw: start.w, sh: start.h,
+        px: e.clientX, py: e.clientY,
+        scaleX: 1 / els[file].stage.clientWidth,
+        scaleY: 1 / els[file].stage.clientHeight
+      };
+      box.setPointerCapture(e.pointerId);
+    });
+
+    box.addEventListener("pointermove", function (e) {
+      if (!drag || drag.file !== file) return;
+      e.preventDefault();
+      var dx = (e.clientX - drag.px) * drag.scaleX;
+      var dy = (e.clientY - drag.py) * drag.scaleY;
+      applyDrag(file, dx, dy);
+    });
+
+    box.addEventListener("pointerup", function () { drag = null; });
+    box.addEventListener("pointercancel", function () { drag = null; });
+  });
+
+  function getPos(file) {
+    var r = els[file].stage.getBoundingClientRect();
+    var b = els[file].box.getBoundingClientRect();
+    return {
+      x: (b.left - r.left) / r.width,
+      y: (b.top - r.top) / r.height,
+      w: b.width / r.width,
+      h: b.height / r.height
+    };
+  }
+
+  function applyDrag(file, dx, dy) {
+    var s = state[file];
+    var o = { x: s.x, y: s.y, w: s.w, h: s.h };
+    if (drag.handle === null) {
+      o.x = clamp(s.x + dx, 0, 1 - s.w);
+      o.y = clamp(s.y + dy, 0, 1 - s.h);
+    } else {
+      if (drag.handle.indexOf("w") !== -1) { var nl = clamp(s.x + dx, 0, s.x + s.w - MIN); o.w = s.w + (s.x - nl); o.x = nl; }
+      if (drag.handle.indexOf("e") !== -1) { o.w = clamp(s.w + dx, MIN, 1 - s.x); }
+      if (drag.handle.indexOf("n") !== -1) { var nt = clamp(s.y + dy, 0, s.y + s.h - MIN); o.h = s.h + (s.y - nt); o.y = nt; }
+      if (drag.handle.indexOf("s") !== -1) { o.h = clamp(s.h + dy, MIN, 1 - s.y); }
+    }
+    state[file] = o;
+    render(file);
+  }
+
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+  function render(file) {
+    var s = state[file];
+    var el = els[file];
+    var px = Math.round(s.x * el.img.naturalWidth);
+    var py = Math.round(s.y * el.img.naturalHeight);
+    var pw = Math.round(s.w * el.img.naturalWidth);
+    var ph = Math.round(s.h * el.img.naturalHeight);
+    el.box.style.left = (s.x * 100) + "%";
+    el.box.style.top = (s.y * 100) + "%";
+    el.box.style.width = (s.w * 100) + "%";
+    el.box.style.height = (s.h * 100) + "%";
+    el.readout.innerHTML = "<b>" + pw + "x" + ph + "</b> px @ " + px + "," + py + "  (x=" + s.x.toFixed(3) + " y=" + s.y.toFixed(3) + " w=" + s.w.toFixed(3) + " h=" + s.h.toFixed(3) + ")";
+  }
+
+  window.addEventListener("resize", function () {
+    FILES.forEach(function (f) { render(f); });
+  });
+
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    FILES.forEach(function (f) {
+      state[f] = { x: 0, y: 0, w: 1, h: 1 };
+      render(f);
+    });
+    document.getElementById("status").textContent = "All reset to full image.";
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", function () {
+    var out = FILES.map(function (f) {
+      var s = state[f];
+      return { file: f, x: +s.x.toFixed(4), y: +s.y.toFixed(4), w: +s.w.toFixed(4), h: +s.h.toFixed(4) };
+    });
+    var json = JSON.stringify(out, null, 2);
+    var ta = document.getElementById("output");
+    var wrap = document.getElementById("outputWrap");
+    ta.value = json;
+    wrap.style.display = "block";
+    var status = document.getElementById("status");
+    navigator.clipboard && navigator.clipboard.writeText(json).then(function () {
+      status.textContent = "Copied " + FILES.length + " crop coordinates.";
+    }, function () {
+      ta.select();
+      document.execCommand("copy");
+      status.textContent = "Fallback copy used.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
